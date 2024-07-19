@@ -10,10 +10,10 @@ const HomePage = () => {
 
   return (
     <div className='text-sm '>
-      <h1>
+      <h1 className='text-white'>
         {username}
       </h1>
-      <button onClick={close_app}>Close</button>
+      <button className='text-white' onClick={close_app}>Close</button>
     </div>
   )
 }
