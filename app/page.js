@@ -10,7 +10,7 @@ const HomePage = () => {
 
   return (
     <div className='text-sm '>
-      <h1 className="">
+      <h1>
         {username}
       </h1>
       <button >Close</button>
