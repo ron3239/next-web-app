@@ -8,6 +8,10 @@ export function useHook() {
     if (window.Telegram) {
       setTg(window.Telegram.WebApp);
       setUserName(window.Telegram.WebApp.initData?.user);
+      console.log('ok');
+    }
+    else{
+        console.log('error');
     }
   }, []);
 
