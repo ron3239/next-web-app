@@ -1,13 +1,13 @@
-let tg = window.Telegram.WebApp
-export function useHook(){
+// let tg = window.Telegram.WebApp
+// export function useHook(){
     
-    function close_app(){
-        tg.close();
-    }
+//     function close_app(){
+//         tg.close();
+//     }
 
 
-    return{
-        tg,
-        userName:tg.initData?.user,
-    }
-}
+//     return{
+//         tg,
+//         userName:tg.initData?.user,
+//     }
+// }
