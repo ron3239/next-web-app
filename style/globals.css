@@ -6,3 +6,16 @@
 body{
     background-color: var(--tg-theme-bg-color);
 }
+
+button{
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wbutton{
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

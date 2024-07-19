@@ -9,9 +9,9 @@ const HomePage = () => {
   const {tg,username,close_app}=useHook();
 
   return (
-    <div className='text-black '>
+    <div className=''>
       <h1 className='place-content-center'>{username}</h1>
-      <button className='text-white' onClick={close_app}>Close</button>
+      <button className='text-black place-content-center {.w}' onClick={close_app}>Close</button>
     </div>
   )
 }
