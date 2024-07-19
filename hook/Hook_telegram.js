@@ -5,7 +5,7 @@ export function useHook() {
   const [userName, setUserName] = useState(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.Telegram) {
+    if (window.Telegram) {
       setTg(window.Telegram.WebApp);
       setUserName(window.Telegram.WebApp.initData?.user);
     }
