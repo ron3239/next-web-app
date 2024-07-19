@@ -9,8 +9,9 @@ const HomePage = () => {
   const {tg,username,close_app}=useHook();
 
   return (
-    <div className='text-sm .dark'>
-      <h1 className="dark">
+    <div className='text-sm '>
+      <h1 className="">
+        {username}
       </h1>
       <button >Close</button>
     </div>

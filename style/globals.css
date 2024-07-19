@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 
-.dark{
-    color: blue;
-    font-size: 20px;
+h1{
+    var(--tg-theme-text-color);
 }
