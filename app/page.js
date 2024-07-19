@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import '../style/globals.css';
 import { useHook } from '@/hook/Hook_telegram';
