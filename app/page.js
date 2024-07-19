@@ -13,7 +13,7 @@ const HomePage = () => {
       <h1>
         {username}
       </h1>
-      <button >Close</button>
+      <button onClick={close_app}>Close</button>
     </div>
   )
 }
