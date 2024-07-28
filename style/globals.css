@@ -3,18 +3,16 @@
 @tailwind utilities;
 
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background-color: var(--tg-theme-bg-color);
 }
 
-button{
-    color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.wbutton{
-    color: red;
+.Car_image_css{
     display: flex;
     justify-content: center;
     align-items: center;
