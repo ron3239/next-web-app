@@ -43,7 +43,6 @@ const HomePage = () => {
         {Farm_sec}
       </h1>
       <h1 className='text-[40px] self-end'>
-        {data.user.username}
         {data}
       </h1>
       </div>
