@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import useTelegramInitData from '@/hook/useTelegramInitData'
+import { initInitData } from '@telegram-apps/sdk';
 import { useState } from 'react';
 import Image from 'next/image'
 import image_png from'../public/mustang.png'
@@ -8,8 +8,8 @@ import image_png from'../public/mustang.png'
 const HomePage = () => {
   // const { load_text } = useHook();
 
+  const [data] = initInitData();
 
-  const data = useTelegramInitData();
 
 
   const [Count, setCount] = useState(0);
@@ -42,9 +42,9 @@ const HomePage = () => {
       <h1 className='text-[40px] self-end'>
         {Farm_sec}
       </h1>
-      {/* <h1 className='text-[40px] self-end'>
-        {data}
-      </h1> */}
+      <h1 className='text-[40px] self-end'>
+        {data.user}
+      </h1>
       </div>
       <div className='flex justify-center items-center mt-[100px]'> {/* Добавьте отступ сверху для разделения */}
         <Car_Image />
