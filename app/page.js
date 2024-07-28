@@ -25,7 +25,7 @@ const HomePage = () => {
     return (
       <button className='flex flex-col items-center' onClick={tap}>
         <Image
-        className='drop-shadow-2xl '
+        className=' '
          src={image_png}
          alt='car'
         />
@@ -42,13 +42,14 @@ const HomePage = () => {
       <h1 className='text-[40px] self-end'>
         {Farm_sec}
       </h1>
-      <h1 className='text-[40px] self-end'>
+      {/* <h1 className='text-[40px] self-end'>
         {data}
-      </h1>
+      </h1> */}
       </div>
       <div className='flex justify-center items-center mt-[100px]'> {/* Добавьте отступ сверху для разделения */}
         <Car_Image />
       </div>
+      {console.log(JSON.stringify(data, null, 2))}
     </div>
   );
 }
