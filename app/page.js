@@ -4,11 +4,18 @@ import { initInitData } from '@telegram-apps/sdk';
 import { useState } from 'react';
 import Image from 'next/image'
 import image_png from'../public/mustang.png'
+import { data } from 'autoprefixer';
 
 const HomePage = () => {
   // const { load_text } = useHook();
 
-  const [data] = initInitData();
+  try{
+    const [sdata] = initInitData();
+    console.log(sdata)
+  }catch{
+    const sdata=null
+    console.log(sdata)
+  }
 
 
 
@@ -43,13 +50,12 @@ const HomePage = () => {
         {Farm_sec}
       </h1>
       <h1 className='text-[40px] self-end'>
-        {data.user}
+        {/* {data} */}
       </h1>
       </div>
       <div className='flex justify-center items-center mt-[100px]'> {/* Добавьте отступ сверху для разделения */}
         <Car_Image />
       </div>
-      {console.log(JSON.stringify(data, null, 2))}
     </div>
   );
 }
