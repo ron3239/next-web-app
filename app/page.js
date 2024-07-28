@@ -42,11 +42,14 @@ const HomePage = () => {
       <h1 className='text-[40px] self-end'>
         {Farm_sec}
       </h1>
+      <h1 className='text-[40px] self-end'>
+        {data.user.username}
+        {data}
+      </h1>
       </div>
       <div className='flex justify-center items-center mt-[100px]'> {/* Добавьте отступ сверху для разделения */}
         <Car_Image />
       </div>
-      {console.log(data)}
     </div>
   );
 }
