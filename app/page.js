@@ -36,7 +36,7 @@ const HomePage = () => {
     };
 
     return (
-        <div className='flex flex-col rounded-t-lg shadow-inner shadow-cyan-500/50 mx-1 mt-20 overflow-hidden'>
+        <div className='h-screen flex flex-col rounded-t-lg shadow-inner shadow-cyan-500/50 mx-1 mt-20 overflow-hidden'>
             <div className='flex items-stretch'>
                 <h1 className='text-[40px] self-center'> {Count} </h1>
                 <h1 className='text-[40px] self-end'> {Farm_sec} </h1>
@@ -45,7 +45,6 @@ const HomePage = () => {
                 </h1>
             </div>
             <div className='flex justify-center items-center mt-[100px]'>
-                {/* Добавьте отступ сверху для разделения */}
                 <Car_Image />
             </div>
         </div>
