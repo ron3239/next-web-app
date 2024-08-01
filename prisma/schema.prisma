@@ -1,0 +1,48 @@
+generator client{
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") 
+  directUrl = env("POSTGRES_URL_NON_POOLING") 
+}
+
+model User {
+  id               Int           @id @default(autoincrement())
+  id_user          Int           @unique
+  username         String
+  coin             Int
+  coin_tap         Int
+  coin_hour        Int
+  last_update_time DateTime
+  upgrades         UserUpgrade[] @relation("UserUpgrades")
+}
+
+model UserUpgrade {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  upgradeId    Int
+  currentLevel Int
+  purchasedAt  DateTime
+  user         User     @relation("UserUpgrades", fields: [userId], references: [id])
+  upgrade      Upgrade  @relation("UserUpgrades", fields: [upgradeId], references: [id])
+}
+
+model Upgrade {
+  id          Int                @id @default(autoincrement())
+  name        String             @unique
+  description String
+  img         String
+  levels      UpgradeLevelCost[] @relation("UpgradeLevels")
+  userUpgrades UserUpgrade[]   @relation("UserUpgrades") 
+}
+
+model UpgradeLevelCost {
+  id             Int      @id @default(autoincrement())
+  upgradeId      Int
+  level          Int
+  cost           Int
+  coinPerHour    Int
+  upgrade        Upgrade  @relation("UpgradeLevels", fields: [upgradeId], references: [id])
+}
