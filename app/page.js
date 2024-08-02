@@ -22,8 +22,8 @@ const HomePage = () => {
     };
   
     // Проверка на hasFetched и tgData === null
-    // if (hasFetched.current || tgData === null) return;
-    if (hasFetched.current) return;
+    if (hasFetched.current || tgData === null) return;
+    // if (hasFetched.current) return;
   
     const fetchBdUser = async () => {
       console.log('Вызов fetchBdUser');
