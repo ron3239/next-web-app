@@ -31,8 +31,6 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
-    if (!tgData) return;
-
     console.log('Вызов fetchBdUser');
     const fetchBdUser = async () => {
       try {
