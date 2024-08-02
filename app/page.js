@@ -40,7 +40,7 @@ const HomePage = () => {
   //           'Content-Type': 'application/json',
   //         },
   //         body: JSON.stringify({
-  //           id_user: tgData.user.id,
+  //           id_user: tgData?.user?.id,
   //         }),
   //       });
   //       console.log("send")
@@ -55,8 +55,8 @@ const HomePage = () => {
   //               'Content-Type': 'application/json',
   //             },
   //             body: JSON.stringify({
-  //               id_user: tgData.user.id,
-  //               username: tgData.user.username,
+  //               id_user: tgData?.user?.id,
+  //               username: tgData?.user?.username,
   //               last_update_time: new Date()
   //             }),
   //           })
@@ -71,14 +71,16 @@ const HomePage = () => {
   //     }
   //   };
 
-  //   fetchBdUser();
+  //   if (tgData) {
+  //     fetchBdUser();
+  //   }
   // }, [tgData]);
 
   if (!tgData) {
     return <Loading />;
   } else {
-    return <Game />;
+    return <Game tgData={tgData} />;
   }
 };
 
-export default HomePage;
+export default HomePage
