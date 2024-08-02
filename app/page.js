@@ -23,13 +23,18 @@ const HomePage = () => {
         console.error('Ошибка получения данных:', error);
       }
     };
-  
-    // Проверка на hasFetched и tgData === null
-    if (hasFetched.current) return;
-    // if (hasFetched.current) return;
-  
+
+    if (!hasFetched.current) {
+      fetchData();
+      hasFetched.current = true;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!tgData) return;
+
+    console.log('Вызов fetchBdUser');
     const fetchBdUser = async () => {
-      console.log('Вызов fetchBdUser');
       try {
         const response = await fetch('/api/user/search', {
           method: "POST",
@@ -61,17 +66,15 @@ const HomePage = () => {
             console.log(`ERROR CREATE USER ${e}`)
           };
         }
-  
+
       } catch (error) {
         setBdUser(null);
         console.error('Ошибка получения данных пользователя:', error);
       }
     };
-  
-    fetchData();
-    fetchBdUser(); // Выполнить fetchBdUser сразу, а не в анонимной функции
-    hasFetched.current = true;
-  }, []);
+
+    fetchBdUser();
+  }, [tgData]);
 
   if (!tgData) {
     return <Loading />;
