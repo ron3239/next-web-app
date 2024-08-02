@@ -4,7 +4,7 @@ import { useEffect,useState } from "react";
 import React from "react";
 
 
-const Game = (props) => {
+const Game = () => {
     const [tg_data, setData] = useState(null);
     const [Count, setCount] = useState(0);
     const [Farm_hour, setFarm_hour] = useState(0);

@@ -6,36 +6,36 @@ import { useState, useEffect } from "react";
 
 const HomePage = () => {
   const [tgData, setTgData] = useState(null);
-  const [bdUser, setBdUser] = useState(null);
-
+  const [bdUser, setBdUser] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        async function w() {
         const tgData = await initInitData();
         setTgData(tgData);
-        console.log('po') 
-        } 
-        w()
-
-        const response = await fetch('http://localhost:3000/api/upgrade');
-        if (!response.ok) {
-          throw new Error(`Ошибка HTTP: ${response.status}`);
-        }
-        const bdUser = await response.json();
-        setBdUser(bdUser);
-        console.log(bdUser);
+        console.log(tgData);
       } catch (error) {
         setTgData(null);
-        setBdUser(null);
         console.error('Ошибка получения данных:', error);
       }
     };
-    fetchData();
-  }, []);
-
   
+    const fetchBdUser = async () => {
+      console.log('Вызов fetchBdUser');
+      try {
+        const response = await fetch('/api/upgrade');
+        const data = await response.json();
+        setBdUser(data);
+        console.log(data);
+      } catch (error) {
+        setBdUser(null);
+        console.error('Ошибка получения данных пользователя:', error);
+      }
+    };
+  
+    fetchData();
+    fetchBdUser();
+  }, []);
 
   if (!tgData) {
     return <Loading />;
