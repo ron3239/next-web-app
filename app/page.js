@@ -10,6 +10,7 @@ const HomePage = () => {
   const hasFetched = useRef(false);
 
   useEffect(() => {
+    console.log('Вызов fetchData');
     const fetchData = async () => {
       try {
         const tgData = await initInitData();
