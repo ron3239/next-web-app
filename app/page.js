@@ -22,7 +22,8 @@ const HomePage = () => {
     };
   
     // Проверка на hasFetched и tgData === null
-    if (hasFetched.current || tgData === null) return;
+    // if (hasFetched.current || tgData === null) return;
+    if (hasFetched.current) return;
   
     const fetchBdUser = async () => {
       console.log('Вызов fetchBdUser');
@@ -49,7 +50,8 @@ const HomePage = () => {
               },
               body: JSON.stringify({
                 id_user: tgData.user.id,
-                username: tgData.user.username
+                username: tgData.user.username,
+                last_update_time: new Date()
               }),
             })
           } catch (e) {
