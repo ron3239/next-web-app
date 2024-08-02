@@ -69,9 +69,6 @@ const HomePage = () => {
   }, []);
 
 
-
-
-
   if (!tgData) {
     return <Loading />;
   } else {
