@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "../../../prisma/prisma_cleint";
+import { prisma } from "../../../prisma/prisma-cleint";
 
 
 export async function GET() {
