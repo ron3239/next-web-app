@@ -16,7 +16,7 @@ const Game = ({ tgData }) => {
         var src = Count >= 10 ? 'y' : 'n';
         return (
             <button className='flex flex-col items-center' onClick={tap}>
-                <Image className='' src={image_png} alt='car' />
+                <Image className=''  alt='car' />
             </button>
         );
     };
