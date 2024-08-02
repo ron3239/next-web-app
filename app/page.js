@@ -5,7 +5,7 @@ import Loading from "../components/Loading/Loading";
 import { useState, useEffect, useRef } from "react";
 
 const HomePage = () => {
-  const [tgData, setTgData] = useState(null);
+  const [tgData, setTgData] = useState();
   const [bdUser, setBdUser] = useState([]);
   const hasFetched = useRef(false);
 
