@@ -12,9 +12,9 @@ model User {
   id               Int           @id @default(autoincrement())
   id_user          Int           @unique
   username         String
-  coin             Int
-  coin_tap         Int
-  coin_hour        Int
+  coin             Int           @default(0)
+  coin_tap         Int           @default(0)
+  coin_hour        Int           @default(0)
   last_update_time DateTime
   upgrades         UserUpgrade[] @relation("UserUpgrades")
 }
