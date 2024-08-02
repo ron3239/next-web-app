@@ -9,18 +9,7 @@ const Game = () => {
     const [Count, setCount] = useState(0);
     const [Farm_hour, setFarm_hour] = useState(0);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await initInitData();
-                setData(data);
-            } catch (error) {
-                setData(null);
-                console.error('Ошибка получения данных:', error);
-            }
-        };
-        fetchData();
-    }, []);
+
 
     const tap = () => {
         setCount(Count + 1);
