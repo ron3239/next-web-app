@@ -3,7 +3,7 @@ import { prisma } from "../../../../prisma/prisma_cleint";
 
 
 
-export async function create_user(req:NextRequest) {
+export async function POST(req:NextRequest) {
     const data = await req.json()
     try{
         const user = await prisma.user.create({
