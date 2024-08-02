@@ -1,34 +1,43 @@
-"use client"
-
+'use client'
 import { initInitData } from "@telegram-apps/sdk-react";
 import Game from "../components/Game/Game";
 import Loading from "../components/Loading/Loading";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const HomePage = () => {
-    const [tg_data, setData] = useState(null);
+  const [tgData, setTgData] = useState(null);
+  const [bdUser, setBdUser] = useState(null);
 
-    
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await initInitData();
-                setData(data);
-            } catch (error) {
-                setData(null);
-                console.error('Ошибка получения данных:', error);
-            }
-        };
-        fetchData();
-    }, []);
 
-    if(!tg_data){
-    return (
-    <Loading/>
-    );
-}else{
-    <Game/>
-}
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const tgData = await initInitData();
+        setTgData(tgData);
+
+        const response = await fetch('http://localhost:3000/api/upgrade');
+        if (!response.ok) {
+          throw new Error(`Ошибка HTTP: ${response.status}`);
+        }
+        const bdUser = await response.json();
+        setBdUser(bdUser);
+        console.log(bdUser);
+      } catch (error) {
+        setTgData(null);
+        setBdUser(null);
+        console.error('Ошибка получения данных:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  
+
+  if (!tgData) {
+    return <Loading />;
+  } else {
+    return <Game />;
+  }
 };
 
 export default HomePage;
