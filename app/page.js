@@ -16,7 +16,9 @@ const HomePage = () => {
       try {
         const tgData = await initInitData();
         setTgData(tgData);
+        console.log('====================================')
         console.log(tgData);
+        console.log('====================================')
       } catch (error) {
         setTgData(null);
         console.error('Ошибка получения данных:', error);
