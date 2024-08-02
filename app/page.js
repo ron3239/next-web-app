@@ -63,8 +63,8 @@ const HomePage = () => {
     };
 
     fetchData();
-    // ()=>fetchBdUser();
-    fetchBdUser();
+    ()=>fetchBdUser();
+    // fetchBdUser();
     hasFetched.current = true;
   }, []);
 
