@@ -12,8 +12,12 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        async function w() {
         const tgData = await initInitData();
         setTgData(tgData);
+        console.log('po') 
+        } 
+        w()
 
         const response = await fetch('http://localhost:3000/api/upgrade');
         if (!response.ok) {
