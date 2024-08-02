@@ -10,7 +10,6 @@ const HomePage = () => {
   const hasFetched = useRef(false);
 
   useEffect(() => {
-    if (hasFetched.current) return;
 
     const fetchData = async () => {
       try {
@@ -23,6 +22,7 @@ const HomePage = () => {
       }
     };
 
+    if (hasFetched.current) return;
     const fetchBdUser = async () => {
       console.log('Вызов fetchBdUser');
       try {
