@@ -3,13 +3,13 @@ import { prisma } from "../../../../prisma/prisma-cleint";
 
 
 export async function POST(req: NextRequest) {
-    const data = await req.json();
+    const sdata = await req.json();
     try {
         const user = await prisma.user.create({
             data: {
-                id_user: BigInt(data.id_user),
-                username: data.username,
-                last_update_time: data.last_update_time,
+                id_user: BigInt(sdata.id_user),
+                username: sdata.username,
+                last_update_time: sdata.last_update_time,
             },
         });
         // Преобразование BigInt в строку перед возвратом ответа
@@ -18,6 +18,6 @@ export async function POST(req: NextRequest) {
             id_user: user.id_user.toString(),
         });
     } catch (e) {
-        return NextResponse.json([{ error: `Ошибка ${e}` },{data}], { status: 400 });
+        return NextResponse.json([{ error: `Ошибка ${e}` },{sdata},], { status: 400 });
     }
 }
