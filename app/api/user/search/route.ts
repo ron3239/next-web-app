@@ -10,13 +10,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // Преобразуем BigInt в строку перед возвратом
-    const response = {
-      ...spisok_user,
-      id_user: spisok_user.id_user.toString(),
-    };
-
-    return NextResponse.json(response);
+    return NextResponse.json(spisok_user);
   } catch (e) {
     return NextResponse.json([{ error: `Ошибка ${e}` }], { status: 400 });
   }
