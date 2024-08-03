@@ -19,11 +19,11 @@ export async function POST(req: NextRequest) {
         return NextResponse.json([{ error: `SEARCH Ошибка ${e}` },
             {data},
             {
-                id:typeof(data.id_user),
+                client:typeof(data.id_user),
                 num:data.id_user
             },
             {
-                id:typeof(BigInt(data.id_user)),
+                server:typeof(BigInt(data.id_user)),
             }
         ], { status: 400 });
     }
