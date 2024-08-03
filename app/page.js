@@ -41,7 +41,7 @@ const HomePage = () => {
           const idUser = tgData?.user?.id;
 
           const resss= await fetch('/api/upgrade')
-          const ressw1 = resss.json
+          const ressw1 = resss.json()
           console.log('====================================')
           console.log(ressw1)
           console.log('====================================')
