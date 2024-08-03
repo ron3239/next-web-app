@@ -7,13 +7,13 @@ export async function POST(req: NextRequest) {
     try {
         const spisok_user = await prisma.user.findUnique({
             where: {
-                id_user: data.id_user,
+                id_user: BigInt(data.id_user),
             },
         });
         // Преобразование BigInt в строку перед возвратом ответа
         return NextResponse.json({
-            ...spisok_user,
-            id_user: spisok_user.id_user.toString(),
+            spisok_user
+            
         });
     } catch (e) {
         return NextResponse.json([{ error: `SEARCH Ошибка ${e}` },{data}], { status: 400 });
