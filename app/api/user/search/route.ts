@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
     try {
         const spisok_user = await prisma.user.findUnique({
             where: {
-                id_user: BigInt(data.id_user),
+                id_user: data.id_user,
             },
         });
         // Преобразование BigInt в строку перед возвратом ответа
