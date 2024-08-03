@@ -16,6 +16,6 @@ export async function POST(req: NextRequest) {
             id_user: spisok_user.id_user.toString(),
         });
     } catch (e) {
-        return NextResponse.json([{ error: `Ошибка ${e}` },{data}], { status: 400 });
+        return NextResponse.json([{ error: `SEARCH Ошибка ${e}` },{data}], { status: 400 });
     }
 }

@@ -18,6 +18,6 @@ export async function POST(req: NextRequest) {
             id_user: user.id_user.toString(),
         });
     } catch (e) {
-        return NextResponse.json([{ error: `Ошибка ${e}` },{sdata},], { status: 400 });
+        return NextResponse.json([{ error: `CREATE Ошибка ${e}` },{sdata},], { status: 400 });
     }
 }
