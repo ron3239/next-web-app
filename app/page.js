@@ -88,7 +88,7 @@ const HomePage = () => {
   }, [tgData]);
 
   
-  if (tgData) {
+  if (!tgData) {
     return <Loading />;
   } else {
     return <Game tgData={tgData} />;
