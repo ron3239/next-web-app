@@ -36,13 +36,13 @@ const HomePage = () => {
     const fetchBdUser = async () => {
       try {
         const response = await fetch('/api/user/search', {
-          next: { revalidate: 3600 },
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id_user: tgData?.user?.id,
+            // id_user: tgData?.user?.id,
+            id_user: 5,
           }),
         });
         console.log("send")
@@ -52,7 +52,7 @@ const HomePage = () => {
         if (data === null) {
           try {
             const res = await fetch('/api/user/create', {
-              next: { revalidate: 3600 },
+
               method: "POST",
               headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const HomePage = () => {
     if (tgData) {
       fetchBdUser();
     }
-  }, [tgData]);
+  }, []);
 
   if (!tgData) {
     return <Loading />;
