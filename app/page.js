@@ -77,7 +77,7 @@ const HomePage = () => {
     if (tgData) {
       fetchBdUser();
     }
-  }, []);
+  }, [tgData]);
 
   if (!tgData) {
     return <Loading />;
