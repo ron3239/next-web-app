@@ -9,47 +9,39 @@ const HomePage = () => {
   const [bdUser, setBdUser] = useState([]);
   const hasFetched = useRef(false);
 
-  // useEffect(() => {
-  //   console.log('Вызов fetchData');
-  //   const fetchData = async () => {
-  //     try {
-  //       const tgData = await initInitData();
-  //       setTgData(tgData);
-  //       console.log('====================================')
-  //       console.log(tgData);
-  //       console.log('initInitData вызван');
-  //       console.log('====================================')
-  //     } catch (error) {
-  //       setTgData(null);
-  //       console.error('Ошибка получения данных:', error);
-  //     }
-  //   };
+  useEffect(() => {
+    console.log('Вызов fetchData');
+    const fetchData = async () => {
+      try {
+        const tgData = await initInitData();
+        setTgData(tgData);
+        console.log('====================================')
+        console.log(tgData);
+        console.log('initInitData вызван');
+        console.log('====================================')
+      } catch (error) {
+        setTgData(null);
+        console.error('Ошибка получения данных:', error);
+      }
+    };
   
-  //   // Вызываем fetchData только один раз при монтировании
-  //   if (!hasFetched.current) {
-  //     fetchData();
-  //     hasFetched.current = true;
-  //   }
-  // }, []);
+    // Вызываем fetchData только один раз при монтировании
+    if (!hasFetched.current) {
+      fetchData();
+      hasFetched.current = true;
+    }
+  }, []);
   
   useEffect(() => {
     console.log('Вызов fetchBdUser');
     const fetchBdUser = async () => {
       try {
-        if (true) {                                                         //!!
+        if (tgData) {                                                         //!!
           // Получаем id_user из tgData
           const idUser = tgData?.user?.id;
 
-          const resss= await fetch('https://ron3239.github.io/next-web-app/api/upgrade')
-          const ressw1 = resss.json()
-          console.log('====================================')
-          console.log(ressw1)
-          console.log('====================================')
 
-
-
-  
-          const response = await fetch('/api/user/search', {
+          const response = await fetch('https://ron3239.github.io/next-web-app/api/user/search', {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
@@ -64,7 +56,7 @@ const HomePage = () => {
           console.log(data);
           if (data === null) {
             try {
-              const res = await fetch('/api/user/create', {
+              const res = await fetch('https://ron3239.github.io/next-web-app/api/user/create', {
   
                 method: "POST",
                 headers: {
@@ -89,14 +81,14 @@ const HomePage = () => {
     };
   
     // Вызываем fetchBdUser только при изменении tgData
-    // if (tgData) {
-    //   fetchBdUser();
-    // }
-    fetchBdUser();
-  }, []);
+    if (tgData) {
+      fetchBdUser();
+    }
+    // fetchBdUser();
+  }, [tgData]);
 
   
-  if (!tgData) {
+  if (tgData) {
     return <Loading />;
   } else {
     return <Game tgData={tgData} />;
