@@ -36,7 +36,7 @@ const HomePage = () => {
     const fetchBdUser = async () => {
       try {
           if (tgData) {
-              const idUser = tgData?.user?.id.toString(); // Преобразование BigInt в строку
+              const idUser = tgData?.user?.id // Преобразование BigInt в строку
   
               const response = await fetch('/api/user/search', {
                   method: "POST",
