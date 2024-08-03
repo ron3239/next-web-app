@@ -9,39 +9,43 @@ const HomePage = () => {
   const [bdUser, setBdUser] = useState([]);
   const hasFetched = useRef(false);
 
-  useEffect(() => {
-    console.log('Вызов fetchData');
-    const fetchData = async () => {
-      try {
-        const tgData = await initInitData();
-        setTgData(tgData);
-        console.log('====================================')
-        console.log(tgData);
-        console.log('initInitData вызван');
-        console.log('====================================')
-      } catch (error) {
-        setTgData(null);
-        console.error('Ошибка получения данных:', error);
-      }
-    };
+  // useEffect(() => {
+  //   console.log('Вызов fetchData');
+  //   const fetchData = async () => {
+  //     try {
+  //       const tgData = await initInitData();
+  //       setTgData(tgData);
+  //       console.log('====================================')
+  //       console.log(tgData);
+  //       console.log('initInitData вызван');
+  //       console.log('====================================')
+  //     } catch (error) {
+  //       setTgData(null);
+  //       console.error('Ошибка получения данных:', error);
+  //     }
+  //   };
   
-    // Вызываем fetchData только один раз при монтировании
-    if (!hasFetched.current) {
-      fetchData();
-      hasFetched.current = true;
-    }
-  }, []);
+  //   // Вызываем fetchData только один раз при монтировании
+  //   if (!hasFetched.current) {
+  //     fetchData();
+  //     hasFetched.current = true;
+  //   }
+  // }, []);
   
   useEffect(() => {
     console.log('Вызов fetchBdUser');
     const fetchBdUser = async () => {
       try {
-        if (tgData) {                                                         //!!
+        if (!tgData) {                                                         //!!
           // Получаем id_user из tgData
           const idUser = tgData?.user?.id;
 
+          const rew = await fetch('/api/upgrade');
+          const wer = await rew.json();
+          console.log(wer)
 
-          const response = await fetch('https://ron3239.github.io/next-web-app/api/user/search', {
+
+          const response = await fetch('/api/user/search', {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
@@ -81,10 +85,10 @@ const HomePage = () => {
     };
   
     // Вызываем fetchBdUser только при изменении tgData
-    if (tgData) {
-      fetchBdUser();
-    }
-    // fetchBdUser();
+    // if (tgData) {
+    //   fetchBdUser();
+    // }
+    fetchBdUser();
   }, [tgData]);
 
   

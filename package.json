@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && <actual-build-command>",
     "start": "next start",
     "lint": "next lint",
     "prisma:push": "prisma db push",
     "prisma:studio": "prisma studio",
-    "seed": "prisma db seed"
+    "seed": "prisma db seed",
+    "postinstall": "prisma generate"
+    
   },
   "dependencies": {
     "@prisma/client": "^5.17.0",
