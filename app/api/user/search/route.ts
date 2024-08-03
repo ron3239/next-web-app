@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "../../../../prisma/prisma-cleint";
 
-export async function GET(req:NextRequest) {
+export async function POST(req:NextRequest) {
     const data = await req.json()
     try{
     const spisok_user = await prisma.user.findUnique({
