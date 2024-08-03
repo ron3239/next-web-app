@@ -9,26 +9,26 @@ const HomePage = () => {
   const [bdUser, setBdUser] = useState([]);
   const hasFetched = useRef(false);
 
-  // useEffect(() => {
-  //   console.log('Вызов fetchData');
-  //   const fetchData = async () => {
-  //     try {
-  //       const tgData = await initInitData();
-  //       setTgData(tgData);
-  //       console.log('====================================')
-  //       console.log(tgData);
-  //       console.log('====================================')
-  //     } catch (error) {
-  //       setTgData(null);
-  //       console.error('Ошибка получения данных:', error);
-  //     }
-  //   };
+  useEffect(() => {
+    console.log('Вызов fetchData');
+    const fetchData = async () => {
+      try {
+        const tgData = await initInitData();
+        setTgData(tgData);
+        console.log('====================================')
+        console.log(tgData);
+        console.log('====================================')
+      } catch (error) {
+        setTgData(null);
+        console.error('Ошибка получения данных:', error);
+      }
+    };
 
-  //   if (!hasFetched.current) {
-  //     fetchData();
-  //     hasFetched.current = true;
-  //   }
-  // }, []);
+    if (!hasFetched.current) {
+      fetchData();
+      hasFetched.current = true;
+    }
+  }, []);
 
   // useEffect(() => {
   //   console.log('Вызов fetchBdUser');
