@@ -18,8 +18,14 @@ export async function POST(req: NextRequest) {
     } catch (e) {
         return NextResponse.json([{ error: `SEARCH Ошибка ${e}` },
             {data},
-            {id:typeof(data.id_user),},
-            {id:typeof(BigInt(data.id_user))}
+            {
+                id:typeof(data.id_user),
+                num:data.id_user
+            },
+            {
+                id:typeof(BigInt(data.id_user)),
+                num:BigInt(data.id_user)
+            }
         ], { status: 400 });
     }
 }
