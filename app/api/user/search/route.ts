@@ -20,11 +20,11 @@ export async function POST(req: NextRequest) {
             {data},
             {
                 id:typeof(data.id_user),
-                num:data.id_user
+                // num:data.id_user
             },
             {
                 id:typeof(BigInt(data.id_user)),
-                num:BigInt(data.id_user)
+                // num:BigInt(data.id_user)
             }
         ], { status: 400 });
     }
