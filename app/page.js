@@ -36,7 +36,7 @@ const HomePage = () => {
     const fetchBdUser = async () => {
       try {
           if (tgData) {
-              const idUser = toString(tgData?.user?.id )    //пробовал
+              const idUser = tgData?.user?.id +'n'    //пробовал
   
               const response = await fetch('/api/user/search', {
                   method: "POST",
