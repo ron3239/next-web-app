@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
                 num:data.id_user
             },
             {
-                server:BigInt(data.id_user),
+                server:BigInt(data.id_user)+'',
             }
         ], { status: 400 });
     }
