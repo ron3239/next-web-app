@@ -45,7 +45,7 @@ const HomePage = () => {
             },
             body: JSON.stringify({
               id_user: idUser,
-            }, (key, value) => (typeof value === 'bigint' ? value.toString() : value)),
+            }),
           });
           console.log("send")
           const data = await response.json();
@@ -61,7 +61,7 @@ const HomePage = () => {
                   id_user: idUser,
                   username: tgData?.user?.username,
                   last_update_time: new Date()
-                }, (key, value) => (typeof value === 'bigint' ? value.toString() : value)),
+                }),
               })
               const data = await res.json();
               setBdUser(data);
