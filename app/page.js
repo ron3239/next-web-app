@@ -79,7 +79,7 @@ const HomePage = () => {
     }
   }, [tgData]);
 
-  if (false) {
+  if (true) {
     return <Loading />;
   } else {
     return <Game tgData={tgData} />;
