@@ -13,10 +13,11 @@ const HomePage = () => {
     console.log('Вызов fetchData');
     const fetchData = async () => {
       try {
-        const tgData = await initInitData();
-        setTgData(tgData);
+        // const tgData = await initInitData();
+        // setTgData(tgData);
         console.log('====================================')
-        console.log(tgData);
+        // console.log(tgData);
+        console.log('initInitData вызван');
         console.log('====================================')
       } catch (error) {
         setTgData(null);
