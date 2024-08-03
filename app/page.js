@@ -4,6 +4,10 @@ import Game from "../components/Game/Game";
 import Loading from "../components/Loading/Loading";
 import { useState, useEffect, useRef } from "react";
 
+const replacer = (key, value) =>
+  typeof value === "bigint" ? `${value}n` : value;
+
+
 const HomePage = () => {
   const [tgData, setTgData] = useState();
   const [bdUser, setBdUser] = useState([]);
@@ -53,10 +57,9 @@ const HomePage = () => {
             body: JSON.stringify({
               id_user: idUser, // Используем id_user из tgData
             }),
-          });
+          },replacer);
           console.log("send")
           const data = await response.json();
-          setBdUser(data);
           console.log(data);
           if (data === null) {
             try {
@@ -71,7 +74,10 @@ const HomePage = () => {
                   username: tgData?.user?.username,
                   last_update_time: new Date()
                 }),
-              })
+              },replacer)
+              const data = await res.json();
+              setBdUser(data);
+              console.log(data);
             } catch (e) {
               console.log(`ERROR CREATE USER ${e}`)
             };
