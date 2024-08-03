@@ -9,40 +9,40 @@ const HomePage = () => {
   const [bdUser, setBdUser] = useState([]);
   const hasFetched = useRef(false);
 
-  // useEffect(() => {
-  //   console.log('Вызов fetchData');
-  //   const fetchData = async () => {
-  //     try {
-  //       const tgData = await initInitData();
-  //       setTgData(tgData);
-  //       console.log('====================================')
-  //       console.log(tgData);
-  //       console.log('initInitData вызван');
-  //       console.log('====================================')
-  //     } catch (error) {
-  //       setTgData(null);
-  //       console.error('Ошибка получения данных:', error);
-  //     }
-  //   };
+  useEffect(() => {
+    console.log('Вызов fetchData');
+    const fetchData = async () => {
+      try {
+        const tgData = await initInitData();
+        setTgData(tgData);
+        console.log('====================================')
+        console.log(tgData);
+        console.log('initInitData вызван');
+        console.log('====================================')
+      } catch (error) {
+        setTgData(null);
+        console.error('Ошибка получения данных:', error);
+      }
+    };
   
-  //   // Вызываем fetchData только один раз при монтировании
-  //   if (!hasFetched.current) {
-  //     fetchData();
-  //     hasFetched.current = true;
-  //   }
-  // }, []);
+    // Вызываем fetchData только один раз при монтировании
+    if (!hasFetched.current) {
+      fetchData();
+      hasFetched.current = true;
+    }
+  }, []);
   
   useEffect(() => {
     console.log('Вызов fetchBdUser');
     const fetchBdUser = async () => {
       try {
-        if (!tgData) {                                                         //!!
+        if (tgData) {                                                         //!!
           // Получаем id_user из tgData
           const idUser = tgData?.user?.id;
 
-          const rew = await fetch('/api/upgrade');
-          const wer = await rew.json();
-          console.log(wer)
+          // const rew = await fetch('/api/upgrade');
+          // const wer = await rew.json();
+          // console.log(wer)
 
 
           const response = await fetch('/api/user/search', {
@@ -51,7 +51,7 @@ const HomePage = () => {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              id_user: 5, // Используем id_user из tgData
+              id_user: idUser, // Используем id_user из tgData
             }),
           });
           console.log("send")
@@ -60,7 +60,7 @@ const HomePage = () => {
           console.log(data);
           if (data === null) {
             try {
-              const res = await fetch('https://ron3239.github.io/next-web-app/api/user/create', {
+              const res = await fetch('/api/user/create', {
   
                 method: "POST",
                 headers: {
@@ -85,10 +85,10 @@ const HomePage = () => {
     };
   
     // Вызываем fetchBdUser только при изменении tgData
-    // if (tgData) {
-    //   fetchBdUser();
-    // }
-    fetchBdUser();
+    if (tgData) {
+      fetchBdUser();
+    }
+    // fetchBdUser();
   }, [tgData]);
 
   
