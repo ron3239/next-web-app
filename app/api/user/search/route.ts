@@ -16,6 +16,10 @@ export async function POST(req: NextRequest) {
             
         });
     } catch (e) {
-        return NextResponse.json([{ error: `SEARCH Ошибка ${e}` },{data},{id:typeof(data.id_user)}], { status: 400 });
+        return NextResponse.json([{ error: `SEARCH Ошибка ${e}` },
+            {data},
+            {id:typeof(data.id_user),},
+            {id:typeof(BigInt(data.id_user))}
+        ], { status: 400 });
     }
 }
