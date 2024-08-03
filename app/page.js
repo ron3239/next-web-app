@@ -40,7 +40,7 @@ const HomePage = () => {
           // Получаем id_user из tgData
           const idUser = tgData?.user?.id;
 
-          const resss= await fetch('/api/upgrade')
+          const resss= await fetch('https://ron3239.github.io/next-web-app/api/upgrade')
           const ressw1 = resss.json()
           console.log('====================================')
           console.log(ressw1)
