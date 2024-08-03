@@ -35,6 +35,7 @@ const HomePage = () => {
     const fetchBdUser = async () => {
       try {
         const response = await fetch('/api/user/search', {
+          next: { revalidate: 3600 },
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
@@ -50,6 +51,7 @@ const HomePage = () => {
         if (data === null) {
           try {
             const res = await fetch('/api/user/create', {
+              next: { revalidate: 3600 },
               method: "POST",
               headers: {
                 'Content-Type': 'application/json',
