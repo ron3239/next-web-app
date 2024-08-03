@@ -40,7 +40,15 @@ const HomePage = () => {
           // Получаем id_user из tgData
           const idUser = tgData?.user?.id;
 
+          const resss= await fetch('/api/upgrade')
+          const ressw1 = resss.json
+          console.log('====================================')
+          console.log(ressw1)
+          console.log('====================================')
 
+
+
+  
           const response = await fetch('/api/user/search', {
             method: "POST",
             headers: {
