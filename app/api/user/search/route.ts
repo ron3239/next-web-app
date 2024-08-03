@@ -5,14 +5,14 @@ import { prisma } from "../../../../prisma/prisma-cleint";
 export async function POST(req: NextRequest) {
     const data = await req.json();
     try {
-        const spisok_user = await prisma.user.findUnique({
+        const user = await prisma.user.findUnique({
             where: {
                 id_user: BigInt(data.id_user),
             },
         });
         // Преобразование BigInt в строку перед возвратом ответа
         return NextResponse.json({
-            spisok_user
+            user
             
         });
     } catch (e) {

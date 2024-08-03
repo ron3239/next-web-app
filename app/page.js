@@ -50,7 +50,7 @@ const HomePage = () => {
               console.log("send");
               const data = await response.json();
               console.log(data);
-              if (data === null) {
+              if (data.user === null) {
                   try {
                       const res = await fetch('/api/user/create', {
                           method: "POST",
