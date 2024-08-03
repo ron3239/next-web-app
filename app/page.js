@@ -4,8 +4,7 @@ import Game from "../components/Game/Game";
 import Loading from "../components/Loading/Loading";
 import { useState, useEffect, useRef } from "react";
 
-const replacer = (key, value) =>
-  typeof value === "bigint" ? `${value}n` : value;
+
 
 
 const HomePage = () => {
@@ -56,8 +55,8 @@ const HomePage = () => {
             },
             body: JSON.stringify({
               id_user: idUser, // Используем id_user из tgData
-            }),
-          },replacer);
+            }, (key, value) => (typeof value === 'bigint' ? value.toString() : value)),
+          });
           console.log("send")
           const data = await response.json();
           console.log(data);
@@ -73,8 +72,8 @@ const HomePage = () => {
                   id_user: idUser, // Используем id_user из tgData
                   username: tgData?.user?.username,
                   last_update_time: new Date()
-                }),
-              },replacer)
+                }, (key, value) => (typeof value === 'bigint' ? value.toString() : value)),
+              })
               const data = await res.json();
               setBdUser(data);
               console.log(data);
