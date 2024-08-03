@@ -2,6 +2,7 @@
 import { initInitData } from "@telegram-apps/sdk-react";
 import { useEffect, useState } from "react";
 import React from "react";
+import {Image} from 'next/image'
 
 const Game = ({ tgData }) => {
     const [tg_data, setData] = useState(tgData);
