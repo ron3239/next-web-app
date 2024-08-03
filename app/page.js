@@ -46,7 +46,7 @@ const HomePage = () => {
                   body: JSON.stringify({
                       id_user: idUser,
                   }),
-              });
+              }); 
               console.log("send");
               const data = await response.json();
               console.log(data);
