@@ -6,7 +6,7 @@ export async function POST(req:NextRequest) {
     try{
     const spisok_user = await prisma.user.findUnique({
         where:{
-            id_user:data.id_user
+            id_user:BigInt(data.id_user)
         }
     });
     return NextResponse.json(spisok_user);
