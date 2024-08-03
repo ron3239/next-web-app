@@ -16,7 +16,7 @@ const HomePage = () => {
         const tgData = await initInitData();
         setTgData(tgData);
         console.log('====================================')
-        // console.log(tgData);
+        console.log(tgData);
         console.log('initInitData вызван');
         console.log('====================================')
       } catch (error) {
@@ -79,7 +79,7 @@ const HomePage = () => {
     }
   }, [tgData]);
 
-  if (true) {
+  if (!tgData) {
     return <Loading />;
   } else {
     return <Game tgData={tgData} />;
