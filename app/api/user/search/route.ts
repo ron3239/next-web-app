@@ -11,7 +11,7 @@ export async function POST(req:NextRequest) {
     });
     return NextResponse.json(spisok_user);
 }catch(e){
-    return NextResponse.json([{error:`Ошибка ${e}`},{data}],{status:300});
+    return NextResponse.json([{error:`Ошибка ${e}`}],{status:400});
 }
 
 };

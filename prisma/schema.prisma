@@ -10,7 +10,7 @@ datasource db {
 
 model User {
   id               Int           @id @default(autoincrement())
-  id_user          Int           @unique
+  id_user          BigInt           @unique
   username         String
   coin             Int           @default(0)
   coin_tap         Int           @default(0)
