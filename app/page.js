@@ -4,9 +4,6 @@ import Game from "../components/Game/Game";
 import Loading from "../components/Loading/Loading";
 import { useState, useEffect, useRef } from "react";
 
-
-
-
 const HomePage = () => {
   const [tgData, setTgData] = useState();
   const [bdUser, setBdUser] = useState([]);
@@ -27,26 +24,19 @@ const HomePage = () => {
         console.error('Ошибка получения данных:', error);
       }
     };
-  
-    // Вызываем fetchData только один раз при монтировании
+
     if (!hasFetched.current) {
       fetchData();
       hasFetched.current = true;
     }
   }, []);
-  
+
   useEffect(() => {
     console.log('Вызов fetchBdUser');
     const fetchBdUser = async () => {
       try {
-        if (tgData) {                                                         //!!
-          // Получаем id_user из tgData
+        if (tgData) {
           const idUser = tgData?.user?.id;
-
-          // const rew = await fetch('/api/upgrade');
-          // const wer = await rew.json();
-          // console.log(wer)
-
 
           const response = await fetch('/api/user/search', {
             method: "POST",
@@ -54,7 +44,7 @@ const HomePage = () => {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              id_user: idUser, // Используем id_user из tgData
+              id_user: idUser,
             }, (key, value) => (typeof value === 'bigint' ? value.toString() : value)),
           });
           console.log("send")
@@ -63,13 +53,12 @@ const HomePage = () => {
           if (data === null) {
             try {
               const res = await fetch('/api/user/create', {
-  
                 method: "POST",
                 headers: {
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                  id_user: idUser, // Используем id_user из tgData
+                  id_user: idUser,
                   username: tgData?.user?.username,
                   last_update_time: new Date()
                 }, (key, value) => (typeof value === 'bigint' ? value.toString() : value)),
@@ -81,22 +70,18 @@ const HomePage = () => {
               console.log(`ERROR CREATE USER ${e}`)
             };
           }
-  
         }
       } catch (error) {
         setBdUser(null);
         console.error('Ошибка получения данных пользователя:', error);
       }
     };
-  
-    // Вызываем fetchBdUser только при изменении tgData
+
     if (tgData) {
       fetchBdUser();
     }
-    // fetchBdUser();
   }, [tgData]);
 
-  
   if (!tgData) {
     return <Loading />;
   } else {
