@@ -35,47 +35,47 @@ const HomePage = () => {
     console.log('Вызов fetchBdUser');
     const fetchBdUser = async () => {
       try {
-        if (tgData) {
-          const idUser = toString(tgData?.user?.id);
-
-          const response = await fetch('/api/user/search', {
-            method: "POST",
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              id_user: idUser,
-            }),
-          });
-          console.log("send")
-          const data = await response.json();
-          console.log(data);
-          if (data === null) {
-            try {
-              const res = await fetch('/api/user/create', {
-                method: "POST",
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  id_user: idUser,
-                  username: tgData?.user?.username,
-                  last_update_time: new Date()
-                }),
-              })
-              const data = await res.json();
-              setBdUser(data);
+          if (tgData) {
+              const idUser = tgData?.user?.id.toString(); // Преобразование BigInt в строку
+  
+              const response = await fetch('/api/user/search', {
+                  method: "POST",
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                      id_user: idUser,
+                  }),
+              });
+              console.log("send");
+              const data = await response.json();
               console.log(data);
-            } catch (e) {
-              console.log(`ERROR CREATE USER ${e}`)
-            };
+              if (data === null) {
+                  try {
+                      const res = await fetch('/api/user/create', {
+                          method: "POST",
+                          headers: {
+                              'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({
+                              id_user: idUser,
+                              username: tgData?.user?.username,
+                              last_update_time: new Date(),
+                          }),
+                      });
+                      const data = await res.json();
+                      setBdUser(data);
+                      console.log(data);
+                  } catch (e) {
+                      console.log(`ERROR CREATE USER ${e}`);
+                  }
+              }
           }
-        }
       } catch (error) {
-        setBdUser(null);
-        console.error('Ошибка получения данных пользователя:', error);
+          setBdUser(null);
+          console.error('Ошибка получения данных пользователя:', error);
       }
-    };
+  };
 
     if (tgData) {
       fetchBdUser();
