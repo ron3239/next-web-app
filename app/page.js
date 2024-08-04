@@ -59,7 +59,7 @@ const HomePage = () => {
                           },
                           body: JSON.stringify({
                               id_user: idUser,
-                              username: tgData?.user?.username,
+                              username: tgData?.user?.firstName,
                               last_update_time: new Date(),
                           }),
                       });
