@@ -27,7 +27,7 @@ const Game = ({ tgData }) => {
                 <h1 className='text-[40px] self-center'> {Count} </h1>
                 <h1 className='text-[40px] self-end'> {Farm_hour} </h1>
                 <h1 className='text-[40px] self-end'>
-                    {tg_data?.user?.username}
+                    {tg_data?.user?.firstName}
                 </h1>
             </div>
             <div className='flex justify-center items-center mt-[100px]'>
