@@ -1,3 +1,4 @@
+"use client"
 import "../Car_Image/Car_Image.css"
 
 
