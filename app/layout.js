@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <head>
       <Script  src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive"/>
       </head>
-      <body className='h-screen w-screen flex {inter.className} bg-black'>
+      <body className='w-screen flex {inter.className} bg-black'>
         {children}
       </body>
 

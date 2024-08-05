@@ -1,7 +1,7 @@
 const Loading=()=>{
     return(
         <div className="h-screen w-screen inline-flex">
-            <img src="mustang../public/mustang.png" alt="" />
+            <img src="" alt="" />
             <h1>Loading...</h1>
         </div>
     )

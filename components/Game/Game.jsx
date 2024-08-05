@@ -48,7 +48,7 @@ const Game = ({ tgData }) => {
             <img src="./coin.svg" alt="" className="size-[20px]" />
             <h1 className="text-[40px] self-center text-slate-50 font-mono gap-5"> {Count} </h1>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center size-auto">
             <Car_Image onClick={tap} />
           </div>
           <div className="flex items-center gap-1 ml-3">
