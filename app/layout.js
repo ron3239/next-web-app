@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <head>
       <Script  src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive"/>
       </head>
-      <body className='{inter.className} bg-gradient-to-r from-[#232526] to-[#414345]'>
+      <body className='h-screen w-screen flex {inter.className} bg-black'>
         {children}
       </body>
 

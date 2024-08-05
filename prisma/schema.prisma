@@ -13,7 +13,7 @@ model User {
   id_user          BigInt           @unique
   username         String
   coin             Int           @default(0)
-  coin_tap         Int           @default(0)
+  coin_tap         Int           @default(1)
   coin_hour        Int           @default(0)
   last_update_time DateTime
   upgrades         UserUpgrade[] @relation("UserUpgrades")

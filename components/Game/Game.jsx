@@ -1,37 +1,61 @@
 "use client"
 import { useEffect, useState } from "react";
 import React from "react";
-import Image from 'next/image'
+import Car_Image from '../Car_Image/Car_Image'
+import Footer from '../Footer/Footer'
+
 
 const Game = ({ tgData }) => {
-    const [tg_data, setData] = useState(tgData);
+    // const [tg_data, setData] = useState(tgData);
+    // const [Count, setCount] = useState(tgData?.coin);
+    // const [Coin_hour, setCoin_hour] = useState(tgData?.coin_hour);
+    // const [Coin_tap , setCoin_tap] = useState(tgData?.coin_tap);
+
     const [Count, setCount] = useState(0);
-    const [Farm_hour, setFarm_hour] = useState(0);
+    const [Coin_hour, setCoin_hour] = useState(0);
+    const [Coin_tap , setCoin_tap] = useState(1);
+    const [energy , setEnergy] = useState(100);
 
-    const tap = () => {
-        setCount(Count + 1);
-    };
+    const tap=()=>{
+        if (energy>0){
+        setCount(Count+Coin_tap)
+        setEnergy(energy-1)
+        }
+    }
+    useEffect(() => {
+        const interval = setInterval(() => {
+          if (energy < 100) {
+            setEnergy(prevEnergy => prevEnergy + 1);
+          }
+        }, 1000);
+    
+        return () => clearInterval(interval);
+      }, [energy]);
 
-    const Car_Image = () => {
-        var src = Count >= 10 ? 'y' : 'n';
-        return (
-            <button className='flex flex-col items-center' onClick={tap}>
-                <Image className=''  alt='car' />
-            </button>
-        );
-    };
 
     return (
-        <div className='h-screen flex flex-col rounded-t-lg shadow-inner shadow-cyan-500/50 mx-1 mt-20 overflow-hidden'>
-            <div className='flex items-stretch'>
-                <h1 className='text-[40px] self-center'> {Count} </h1>
-                <h1 className='text-[40px] self-end'> {Farm_hour} </h1>
-                <h1 className='text-[40px] self-end'>
-                    {tg_data?.user?.firstName}
+        <div className=" overflow-hidden">
+            <h1 className='text-[40px] self-end text-stone-200'>
+                    username
+                    {/* {tg_data?.user?.firstName} */}
                 </h1>
+            <div className='flex flex-col rounded-t-lg shadow-[0px_0px_20px_15px_#44337a] bg-[#232526] mt-5 overflow-hidden'>
+            <div className='flex flex-col items-center ml-auto border-solid rounded-lg border-[#44337a] border-2 p-2 mt-5 mr-5'>
+                <h1 className="text-[12px] font-mono text-slate-50">Прибыль в час</h1>
+                <h1 className='text-[20px] font-mono text-slate-50'> {Coin_hour} </h1>
             </div>
-            <div className='flex justify-center items-center mt-[100px]'>
-                <Car_Image />
+            <div className="flex items-center justify-center">
+                <img src="./coin.svg" alt="" className="size-[30px]" />
+                <h1 className='text-[60px] self-center text-slate-50 font-mono gap-5'> {Count} </h1>
+            </div>
+                <div className='flex justify-center items-center]'>
+                    <Car_Image onClick={tap}/>
+                </div>
+                <div className="flex items-center gap-1 ml-3">
+                    <h1 className="text-[32px] text-[#FFC10A] font-mono">100/{energy}</h1>
+                    <img src="./energy.svg" alt="" className="size-8" />
+                </div>
+                <Footer/>
             </div>
         </div>
     );

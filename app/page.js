@@ -49,6 +49,7 @@ const HomePage = () => {
               }); 
               console.log("send");
               const data = await response.json();
+              setBdUser(data);
               console.log(data);
               if (data.user === null) {
                   try {
@@ -82,7 +83,7 @@ const HomePage = () => {
     }
   }, [tgData]);
 
-  if (!tgData) {
+  if (tgData) {
     return <Loading />;
   } else {
     return <Game tgData={tgData} />;
