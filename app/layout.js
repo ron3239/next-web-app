@@ -1,4 +1,3 @@
-"use client"
 import { Inter } from "next/font/google";
 import '../style/globals.css';
 import Script from "next/script";
