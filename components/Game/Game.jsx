@@ -34,30 +34,30 @@ const Game = ({ tgData }) => {
 
 
     return (
-        <div className=" overflow-hidden">
-            <h1 className='text-[40px] self-end text-stone-200'>
-                    username
-                    {/* {tg_data?.user?.firstName} */}
-                </h1>
-            <div className='flex flex-col rounded-t-lg shadow-[0px_0px_20px_15px_#44337a] bg-[#232526] mt-5 overflow-hidden'>
-            <div className='flex flex-col items-center ml-auto border-solid rounded-lg border-[#44337a] border-2 p-2 mt-5 mr-5'>
-                <h1 className="text-[12px] font-mono text-slate-50">Прибыль в час</h1>
-                <h1 className='text-[20px] font-mono text-slate-50'> {Coin_hour} </h1>
-            </div>
-            <div className="flex items-center justify-center">
-                <img src="./coin.svg" alt="" className="size-[30px]" />
-                <h1 className='text-[60px] self-center text-slate-50 font-mono gap-5'> {Count} </h1>
-            </div>
-                <div className='flex justify-center items-center]'>
-                    <Car_Image onClick={tap}/>
-                </div>
-                <div className="flex items-center gap-1 ml-3">
-                    <h1 className="text-[32px] text-[#FFC10A] font-mono">100/{energy}</h1>
-                    <img src="./energy.svg" alt="" className="size-8" />
-                </div>
-                <Footer/>
-            </div>
+        <div className="overflow-hidden">
+        <h1 className="text-[24px] self-end text-stone-200 font-bold">
+          username
+          {/* {tg_data?.user?.firstName} */}
+        </h1>
+        <div className="flex flex-col rounded-t-lg shadow-[0px_0px_20px_15px_#44337a] bg-[#232526] mt-5 overflow-hidden">
+          <div className="flex flex-col items-center ml-auto border-solid rounded-lg border-[#44337a] border-2 p-2 mt-5 mr-5">
+            <h1 className="text-[10px] font-mono text-slate-50">Прибыль в час</h1>
+            <h1 className="text-[16px] font-mono text-slate-50"> {Coin_hour} </h1>
+          </div>
+          <div className="flex items-center justify-center">
+            <img src="./coin.svg" alt="" className="size-[20px]" />
+            <h1 className="text-[40px] self-center text-slate-50 font-mono gap-5"> {Count} </h1>
+          </div>
+          <div className="flex justify-center items-center">
+            <Car_Image onClick={tap} />
+          </div>
+          <div className="flex items-center gap-1 ml-3">
+            <h1 className="text-[20px] text-[#FFC10A] font-mono">100/{energy}</h1>
+            <img src="./energy.svg" alt="" className="size-6" />
+          </div>
+          <Footer />
         </div>
+      </div>
     );
 };
 
