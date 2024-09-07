@@ -14,8 +14,8 @@ const HomePage = () => {
     console.log('Вызов fetchData');
     const fetchData = async () => {
       try {
-        const tgData = await initInitData();
-        setTgData(tgData);
+        const data = await initInitData();
+        setTgData(data);
         console.log('====================================')
         console.log(tgData);
         console.log('initInitData вызван');
