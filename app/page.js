@@ -81,7 +81,7 @@ const HomePage = () => {
     }
   };
 
-  if (tgData || bdUser) {
+  if (!tgData || !bdUser) {
     return <Game tgData={tgData} bdUser={bdUser} GetUser={GetUser} />;
   } else {
     return (
