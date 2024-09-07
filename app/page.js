@@ -11,9 +11,9 @@ const HomePage = () => {
 
   useEffect(() => {
     console.log('Вызов fetchData');
-    const fetchData = async () => {
+    const fetchData = () => {
       try {
-        const data = await initInitData();
+        const data = initInitData();
         setTgData(data);
         console.log('====================================')
         console.log(tgData);
