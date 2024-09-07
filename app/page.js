@@ -85,7 +85,7 @@ const createUser = async (idUser)=>{
 }
 
 
-  if (tgData==undefined&&bdUser===undefined) {
+  if (tgData!=undefined&&bdUser===undefined) {
     return <Loading />;
   } else {
     return <Game tgData={tgData} bdUser={bdUser} GetUser={GetUser}/>;
