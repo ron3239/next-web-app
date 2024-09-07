@@ -21,11 +21,11 @@ model User {
 
 model UserUpgrade {
   id           Int      @id @default(autoincrement())
-  userId       Int
+  userId       BigInt
   upgradeId    Int
-  currentLevel Int
-  purchasedAt  DateTime
-  user         User     @relation("UserUpgrades", fields: [userId], references: [id])
+  currentLevel Int      @default(1)
+  purchasedAt  DateTime @default(now())
+  user         User     @relation("UserUpgrades", fields: [userId], references: [id_user])
   upgrade      Upgrade  @relation("UserUpgrades", fields: [upgradeId], references: [id])
 }
 
