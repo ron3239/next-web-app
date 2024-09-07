@@ -1,4 +1,5 @@
 "use client"
+
 import { initInitData } from "@telegram-apps/sdk-react";
 import Game from "../components/Game/Game";
 import Loading from "../components/Loading/Loading";
@@ -6,7 +7,7 @@ import { useState, useEffect, useRef } from "react";
 
 const HomePage = () => {
   const [tgData, setTgData] = useState();
-  const [bdUser, setBdUser] = useState({});
+  const [bdUser, setBdUser] = useState(null);
   const hasFetched = useRef(false);
 
   useEffect(() => {
@@ -30,68 +31,70 @@ const HomePage = () => {
       fetchData();
       hasFetched.current = true;
     }
+
+    return () => controller.abort(); // Добавили отмену запроса
   }, []);
-  const idUser = tgData?.user?.id +''
+
+  const idUser = tgData?.user?.id; // Получаем id пользователя
 
   useEffect(() => {
     console.log('Вызов fetchBdUser');
-    if (tgData) {
+    if (tgData && idUser) {
       GetUser(idUser);
-      if(bdUser===null) createUser(idUser)
+      if (!bdUser) {
+        createUser(idUser);
+      }
     }
-  }, [!tgData]);
+  }, [tgData, idUser, bdUser]); // Зависимости для правильного вызова
 
-const GetUser = async (id_user) => {
+  const GetUser = async (id_user) => {
     try {
-                //пробовал
-            const response = await fetch('/api/user/search', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    id_user: id_user,    //idUser
-                }),
-            }); 
-            console.log("send");
-            const data = await response.json();
-            setBdUser(data);
-            console.log(data);
-
-    } catch (error) {
-        setBdUser(null);
-        console.error('Ошибка получения данных пользователя:', error);
-    }
-};
-const createUser = async (idUser)=>{
-  try {
-    const res = await fetch('/api/user/create', {
+      const response = await fetch('/api/user/search', {
         method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            id_user: idUser,
-            username: tgData?.user?.firstName,
-            last_update_time: new Date(),
+          id_user: id_user,
         }),
-    });
-    const data = await res.json();
-    setBdUser(data);
-    console.log(data);
-} catch (e) {
-    console.log(`ERROR CREATE USER ${e}`);
-}
-}
+      });
+      const data = await response.json();
+      setBdUser(data);
+      console.log("Данные пользователя:", data); // Более информативное сообщение
+    } catch (error) {
+      setBdUser(null);
+      console.error('Ошибка получения данных пользователя:', error);
+    }
+  };
 
+  const createUser = async (idUser) => {
+    try {
+      const res = await fetch('/api/user/create', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id_user: idUser,
+          username: tgData?.user?.firstName || 'Неизвестный пользователь', // Безопасный доступ к имени
+          last_update_time: new Date(),
+        }),
+      });
+      const data = await res.json();
+      setBdUser(data);
+      console.log("Новый пользователь создан:", data); // Информативное сообщение
+    } catch (e) {
+      console.error("Ошибка при создании пользователя:", e);
+    }
+  };
 
-  if (!tgData&&!bdUser) {
+  if (!tgData || !bdUser) {
     return <Loading />;
   } else {
-    return <Game tgData={tgData} bdUser={bdUser} GetUser={GetUser}/>;
+    return (
+      <Game tgData={tgData} bdUser={bdUser} GetUser={GetUser} />
+    );
   }
 };
-// tgData!=undefined&&bdUser===undefined
 
-export default HomePage
-
+export default HomePage;
