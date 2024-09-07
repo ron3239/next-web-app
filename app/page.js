@@ -8,7 +8,6 @@ import { useState, useEffect, useRef } from "react";
 const HomePage = () => {
   const [tgData, setTgData] = useState();
   const [bdUser, setBdUser] = useState(null);
-  const hasFetched = useRef(false);
 
   useEffect(() => {
     const controller = new AbortController()
@@ -16,7 +15,7 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const tgData = await initInitData();
-        if (!ignore) setTgData(tgData);
+        setTgData(tgData);
         console.log('====================================')
         console.log(tgData);
         console.log('initInitData вызван');
@@ -27,12 +26,7 @@ const HomePage = () => {
       }
     };
 
-    if (!hasFetched.current) {
       fetchData();
-      hasFetched.current = true;
-    }
-
-    return () => controller.abort(); // Добавили отмену запроса
   }, []);
 
   const idUser = tgData?.user?.id; // Получаем id пользователя
