@@ -35,7 +35,7 @@ const HomePage = () => {
 
   useEffect(() => {
     console.log('Вызов fetchBdUser');
-    if (!tgData) {
+    if (tgData) {
       GetUser(idUser);
       if(bdUser===null) createUser(idUser)
     }
@@ -85,7 +85,7 @@ const createUser = async (idUser)=>{
 }
 
 
-  if (tgData!=undefined&&bdUser===undefined) {
+  if (!tgData&&!bdUser) {
     return <Loading />;
   } else {
     return <Game tgData={tgData} bdUser={bdUser} GetUser={GetUser}/>;
