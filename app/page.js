@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { initInitData } from "@telegram-apps/sdk-react";
 import Game from "../components/Game/Game";
@@ -6,38 +6,38 @@ import Loading from "../components/Loading/Loading";
 import { useState, useEffect } from "react";
 
 const HomePage = () => {
-  const [tgData, setTgData] = useState();
+  const [tgData, setTgData] = useState(null);
   const [bdUser, setBdUser] = useState(null);
 
   useEffect(() => {
-    console.log('Вызов fetchData');
-    const fetchData = () => {
+    const fetchData = async () => {
       try {
-        const data = initInitData();
+        console.log('Вызов fetchData');
+        const data = await initInitData(); // Сделаем функцию асинхронной
         setTgData(data);
-        console.log('====================================')
-        console.log(tgData);
-        console.log('initInitData вызван');
-        console.log('====================================')
+        console.log('Данные tgData:', data);
       } catch (error) {
         setTgData(null);
         console.error('Ошибка получения данных:', error);
       }
     };
 
-      fetchData();
+    fetchData();
   }, []);
 
-  const idUser = tgData?.user?.id; // Получаем id пользователя
+  const idUser = tgData?.user?.id;
 
   useEffect(() => {
-    if (tgData!=undefined && idUser) {
+    if (tgData && idUser) {
       GetUser(idUser);
-      if (!bdUser) {
-        createUser(idUser);
-      }
     }
-  }, [tgData, idUser, bdUser]); // Зависимости для правильного вызова
+  }, [tgData, idUser]);
+
+  useEffect(() => {
+    if (idUser && !bdUser) {
+      createUser(idUser);
+    }
+  }, [bdUser, idUser]);
 
   const GetUser = async (id_user) => {
     try {
@@ -46,13 +46,11 @@ const HomePage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          id_user: id_user,
-        }),
+        body: JSON.stringify({ id_user }),
       });
       const data = await response.json();
       setBdUser(data);
-      console.log("Данные пользователя:", data); // Более информативное сообщение
+      console.log("Данные пользователя:", data);
     } catch (error) {
       setBdUser(null);
       console.error('Ошибка получения данных пользователя:', error);
@@ -68,25 +66,27 @@ const HomePage = () => {
         },
         body: JSON.stringify({
           id_user: idUser,
-          username: tgData?.user?.firstName || 'Неизвестный пользователь', // Безопасный доступ к имени
+          username: tgData?.user?.firstName || 'Неизвестный пользователь',
           last_update_time: new Date(),
         }),
       });
       const data = await res.json();
       setBdUser(data);
-      console.log("Новый пользователь создан:", data); // Информативное сообщение
+      console.log("Новый пользователь создан:", data);
     } catch (e) {
       console.error("Ошибка при создании пользователя:", e);
     }
   };
 
-  if (tgData && bdUser) {
-    return <Game tgData={tgData} bdUser={bdUser} GetUser={GetUser} />;
-  } else {
-    return (
-      <Loading/>
-    );
+  if (!tgData) {
+    return <Loading />;
   }
+
+  if (!bdUser) {
+    return <Loading />;
+  }
+
+  return <Game tgData={tgData} bdUser={bdUser} GetUser={GetUser} />;
 };
 
 export default HomePage;
