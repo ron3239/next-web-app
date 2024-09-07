@@ -32,7 +32,6 @@ const HomePage = () => {
   const idUser = tgData?.user?.id; // Получаем id пользователя
 
   useEffect(() => {
-    console.log('Вызов fetchBdUser');
     if (tgData && idUser) {
       GetUser(idUser);
       if (!bdUser) {
@@ -82,11 +81,11 @@ const HomePage = () => {
     }
   };
 
-  if (!tgData || !bdUser) {
-    return <Loading />;
+  if (tgData || bdUser) {
+    return <Game tgData={tgData} bdUser={bdUser} GetUser={GetUser} />;
   } else {
     return (
-      <Game tgData={tgData} bdUser={bdUser} GetUser={GetUser} />
+      <Loading/>
     );
   }
 };
