@@ -3,7 +3,7 @@
 import { initInitData } from "@telegram-apps/sdk-react";
 import Game from "../components/Game/Game";
 import Loading from "../components/Loading/Loading";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const HomePage = () => {
   const [tgData, setTgData] = useState();
@@ -31,7 +31,7 @@ const HomePage = () => {
   const idUser = tgData?.user?.id; // Получаем id пользователя
 
   useEffect(() => {
-    if (tgData && idUser) {
+    if (tgData!=undefined && idUser) {
       GetUser(idUser);
       if (!bdUser) {
         createUser(idUser);
