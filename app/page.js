@@ -86,7 +86,7 @@ const HomePage = () => {
     return <Loading />;
   }
 
-  return <Game tgData={tgData} bdUser={bdUser} GetUser={GetUser} />;
+  return <Game bdUser={bdUser} GetUser={GetUser} />;
 };
 
 export default HomePage;

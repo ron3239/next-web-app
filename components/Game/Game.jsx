@@ -5,8 +5,7 @@ import Upgrade from '../Upgrade/Upgrade'
 import Invite from '../Invite/Invite'
 import Wallet from '../Wallet/Wallet'
 
-const Game = ({tgData,bdUser,GetUser}) => {
-    const [tg_data, setData] = useState(tgData);
+const Game = ({bdUser,GetUser}) => {
     const [Count, setCount] = useState();
     const [Coin_hour, setCoin_hour] = useState();
     const [Coin_tap , setCoin_tap] = useState();
