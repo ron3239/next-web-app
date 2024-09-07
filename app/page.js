@@ -34,7 +34,7 @@ const HomePage = () => {
   }, [tgData, idUser]);
 
   useEffect(() => {
-    if (idUser && !bdUser) {
+    if (idUser && bdUser==null) {
       createUser(idUser);
     }
   }, [bdUser, idUser]);
@@ -46,7 +46,7 @@ const HomePage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id_user }),
+        body: JSON.stringify({ id_user:id_user }),
       });
       const data = await response.json();
       setBdUser(data);
