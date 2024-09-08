@@ -16,10 +16,10 @@ const HomePage = () => {
   }, []);
 
   useEffect(()=>{
-    if (tgData!=null) {
+    if (tgData!=null&& tgData!=null) {
       GetUser(tgData.user.id);
     }
-    if (bdUser === null) {
+    if (bdUser === null && tgData!=null) {
       createUser(tgData.user.id);
     }
   },[tgData])
