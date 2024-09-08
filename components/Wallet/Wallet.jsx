@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
 
 function Wallet(props) {
     return (
-        <div className="h-full w-full">
+        <div className="h-full w-full select-none">
             <div className="m-2 flex items-center justify-between">
                 <h1 className="text-[24px] text-stone-200 font-bold">
-                    username
-                    {/* {tg_data?.user?.firstName} */}
+                {props._metadata.name}
                 </h1>
             </div>
 

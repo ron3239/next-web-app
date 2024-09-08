@@ -180,7 +180,7 @@ const Upgrade = (props) => {
       ));
 
     return(
-        <div className="h-full w-full">
+        <div className="h-full w-full select-none">
 
                 {vis&&<Ramka_upgrade _data={dataRamka} onClick_close={open_close_ramka} onClick_buy={buy}/>}
 

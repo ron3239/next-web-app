@@ -39,7 +39,7 @@ const Home = (props)=>{
         return hours + ":" + minutes + ":" + seconds;
     }
     return (
-        <div className="h-full w-full ">
+        <div className="h-full w-full select-none">
                 <div className="m-2 flex items-center justify-between">
                     <h1 className="text-[24px] text-stone-200 font-bold">
                         {props._metadata.name}

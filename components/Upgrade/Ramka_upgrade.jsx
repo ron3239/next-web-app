@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const Ramka_upgrade = (props) => {
   return (
-    <div className={`fixed top-0 bottom-0 right-0 left-0 bg-black/60 z-30 overflow-hidden`}>
+    <div className={`fixed top-0 bottom-0 right-0 left-0 bg-black/60 z-30 overflow-hidden select-none`}>
             <div className=" fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-4/6 h-auto rounded-lg shadow-[0px_0px_20px_15px_#44337a] bg-stone-900">
             <div className='fixed top-0 right-0 m-1'>
             <Image src='/upgrade/cross.svg' 
