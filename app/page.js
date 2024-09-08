@@ -10,36 +10,17 @@ const HomePage = () => {
   const [bdUser, setBdUser] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        console.log('Вызов fetchData');
-        const data = await initInitData(); 
-        setTgData(data);
-        console.log('Данные tgData:', data);
-      } catch (error) {
-        setTgData(null);
-        console.error('Ошибка получения данных:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
+    fetchData()
     // Вызываем GetUser только после загрузки tgData
     if (tgData) {
       GetUser(tgData.user.id);
     }
-  }, [tgData]);
-
-  useEffect(() => {
-    // Создаем пользователя только после загрузки tgData
     if (bdUser === null && tgData) {
       createUser(tgData.user.id);
     }
-  }, [bdUser, tgData]); 
+  }, []);
 
-  // ... Остальной код 
+
   
   const GetUser = async (id_user) => {
     try {
