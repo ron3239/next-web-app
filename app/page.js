@@ -12,10 +12,10 @@ const HomePage = () => {
   useEffect(() => {
     fetchData()
     // Вызываем GetUser только после загрузки tgData
-    if (tgData) {
+    if (tgData!=null) {
       GetUser(tgData.user.id);
     }
-    if (bdUser === null && tgData) {
+    if (bdUser === null && tgData!=null) {
       createUser(tgData.user.id);
     }
   }, []);
