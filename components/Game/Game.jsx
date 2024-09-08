@@ -123,7 +123,7 @@ const Game = ({bdUser,GetUser}) => {
             }),
         });
         const res = await data.json();
-        setCount(res.count);
+
     } catch (e) {
         console.error(e);
     } finally {
@@ -151,7 +151,7 @@ const Game = ({bdUser,GetUser}) => {
     const tap = () => {
       if (energy > 0) {
         plusCount(Coin_tap);          //undefined
-        setCount(BigInt(Count)+BigInt(Coin_tap))
+        setCount(Count+Coin_tap)
         setEnergy(energy - 1);
       }
     };
