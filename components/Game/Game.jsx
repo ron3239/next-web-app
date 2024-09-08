@@ -14,6 +14,7 @@ const Game = ({bdUser,GetUser}) => {
     const [url_img,setUrl_img] = useState()
     const [hour,setHour] = useState()
     const [id_user,setId_user] = useState()
+    const [name,setName] = useState()
 
 
     const imageBaseURL = 'car/';
@@ -24,6 +25,7 @@ const Game = ({bdUser,GetUser}) => {
         setCoin_tap(bdUser.user.coin_tap);
         setHour(new Date(bdUser.user.last_update_time).toString())
         setId_user(bdUser.user.id_user)
+        setName(bdUser.user.username)
       }
     }, [bdUser]);
     
@@ -164,6 +166,7 @@ const Game = ({bdUser,GetUser}) => {
 
     var _metadata={
       id_user:id_user,
+      name:name,
       Coin_hour:Coin_hour,
       Count: Count,
       tap: tap,

@@ -186,8 +186,7 @@ const Upgrade = (props) => {
 
                 <div className="m-2 flex items-center justify-between">
                     <h1 className="text-[24px] text-stone-200 font-bold">
-                        username
-                        {/* {tg_data?.user?.firstName} */}
+                    {props._metadata.name}
                     </h1>
                     <img src="./coleso.svg" className="size-7 animate-spin"/>
                 </div>
