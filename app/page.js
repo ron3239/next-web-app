@@ -18,14 +18,12 @@ const HomePage = () => {
   useEffect(()=>{
     if (tgData!=null&& tgData!=null) {
       GetUser(tgData.user.id);
-    }else if(bdUser === null && tgData!=null){
+    }else if(bdUser === null){
       createUser(tgData.user.id);
     }
   },[tgData])
   
 
-
-  
   const GetUser = async (id_user) => {
     try {
       const response = await fetch('/api/user/search', {
@@ -37,7 +35,8 @@ const HomePage = () => {
       });
       const data = await response.json();
       setBdUser(data);
-      console.log("Данные пользователя:", data);
+      console.log("Данные пользователя date:", data);
+      console.log("Данные пользователя bd:", bdUser);
     } catch (error) {
       setBdUser(null);
       console.error('Ошибка получения данных пользователя:', error);
