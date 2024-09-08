@@ -79,6 +79,17 @@ const HomePage = () => {
       console.error("Ошибка при создании пользователя:", e);
     }
   };
+  const fetchData = async () => {
+    try {
+      console.log('Вызов fetchData');
+      const data = await initInitData(); 
+      setTgData(data);
+      console.log('Данные tgData:', data);
+    } catch (error) {
+      setTgData(null);
+      console.error('Ошибка получения данных:', error);
+    }
+  };
 
   if (!tgData) {
     return <Loading />;
