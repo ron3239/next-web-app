@@ -18,8 +18,7 @@ const HomePage = () => {
   useEffect(()=>{
     if (tgData!=null&& tgData!=null) {
       GetUser(tgData.user.id);
-    }
-    if (bdUser === null && tgData!=null) {
+    }else if(bdUser === null && tgData!=null){
       createUser(tgData.user.id);
     }
   },[tgData])
