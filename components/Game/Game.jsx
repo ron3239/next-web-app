@@ -151,7 +151,7 @@ const Game = ({bdUser,GetUser}) => {
     const tap = () => {
       if (energy > 0) {
         plusCount(Coin_tap);          //undefined
-        setCount(Count+Coin_tap)
+        setCount(BigInt(Count)+BigInt(Coin_tap))
         setEnergy(energy - 1);
       }
     };
