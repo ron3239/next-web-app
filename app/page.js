@@ -14,15 +14,16 @@ const HomePage = () => {
     // Вызываем GetUser только после загрузки tgData
 
   }, []);
-  
+
   useEffect(()=>{
     if (tgData!=null) {
       GetUser(tgData.user.id);
     }
-    if (bdUser === null && tgData!=null) {
+    if (bdUser === null) {
       createUser(tgData.user.id);
     }
   },[tgData])
+  
 
 
   
