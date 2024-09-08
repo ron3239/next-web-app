@@ -42,7 +42,7 @@ const Home = (props)=>{
         <div className="h-full w-full ">
                 <div className="m-2 flex items-center justify-between">
                     <h1 className="text-[24px] text-stone-200 font-bold">
-                        {tg_data?.user?.firstName}
+                        {props._metadata.name}
                     </h1>
                 </div>
 
