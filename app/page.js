@@ -10,16 +10,19 @@ const HomePage = () => {
   const [bdUser, setBdUser] = useState();
 
   useEffect(() => {
-    fetchData()
-    // Вызываем GetUser только после загрузки tgData
+    const d= fetchData()
+    setTgData(d)
+    console.log('Данные tgData:', tgData);
 
   }, []);
 
   useEffect(()=>{
     if (tgData!=null&& tgData!=null) {
-      GetUser(tgData.user.id);
+      const user = GetUser(tgData.user.id);
+      setBdUser(user)
     }else if(bdUser === null){
-      createUser(tgData.user.id);
+      const user = createUser(tgData.user.id);
+      setBdUser(user)
     }
   },[tgData])
   
@@ -57,8 +60,7 @@ const HomePage = () => {
         }),
       });
       const data = await res.json();
-      setBdUser(data);
-      console.log("Новый пользователь создан:", data);
+      return data
     } catch (e) {
       console.error("Ошибка при создании пользователя:", e);
     }
@@ -67,8 +69,8 @@ const HomePage = () => {
     try {
       console.log('Вызов fetchData');
       const data = await initInitData(); 
-      setTgData(data);
       console.log('Данные tgData:', data);
+      return data
     } catch (error) {
       setTgData(null);
       console.error('Ошибка получения данных:', error);
