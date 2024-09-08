@@ -13,7 +13,7 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         console.log('Вызов fetchData');
-        const data = await initInitData(); // Сделаем функцию асинхронной
+        const data = await initInitData(); 
         setTgData(data);
         console.log('Данные tgData:', data);
       } catch (error) {
@@ -25,20 +25,25 @@ const HomePage = () => {
     fetchData();
   }, []);
 
+  // Получаем id пользователя только после загрузки tgData
   const idUser = tgData?.user?.id;
 
   useEffect(() => {
+    // Вызываем GetUser только после загрузки tgData
     if (tgData && idUser) {
       GetUser(idUser);
     }
   }, [tgData, idUser]);
 
   useEffect(() => {
-    if (idUser && bdUser==null) {
+    // Создаем пользователя только после загрузки tgData
+    if (idUser && bdUser === null && tgData) {
       createUser(idUser);
     }
-  }, [bdUser, idUser]);
+  }, [bdUser, idUser, tgData]); 
 
+  // ... Остальной код 
+  
   const GetUser = async (id_user) => {
     try {
       const response = await fetch('/api/user/search', {
