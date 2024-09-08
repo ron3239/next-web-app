@@ -25,22 +25,19 @@ const HomePage = () => {
     fetchData();
   }, []);
 
-  // Получаем id пользователя только после загрузки tgData
-  const idUser = tgData?.user?.id;
-
   useEffect(() => {
     // Вызываем GetUser только после загрузки tgData
-    if (tgData && idUser) {
-      GetUser(idUser);
+    if (tgData) {
+      GetUser(tgData.user.id);
     }
-  }, [tgData, idUser]);
+  }, [tgData]);
 
   useEffect(() => {
     // Создаем пользователя только после загрузки tgData
-    if (idUser && bdUser === null && tgData) {
-      createUser(idUser);
+    if (bdUser === null && tgData) {
+      createUser(tgData.user.id);
     }
-  }, [bdUser, idUser, tgData]); 
+  }, [bdUser, tgData]); 
 
   // ... Остальной код 
   
