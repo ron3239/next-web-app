@@ -15,13 +15,11 @@ const HomePage = () => {
 
   useEffect(()=>{
     if (tgData!=null&& tgData!=null) {
-      const user = GetUser(tgData.user.id);
+      GetUser(tgData.user.id);
       console.log('Данные tgData:', tgData);
-      setBdUser(user)
       console.log('Данные BdUser:', bdUser);
     }else if(bdUser === null){
-      const user = createUser(tgData.user.id);
-      setBdUser(user)
+      createUser(tgData.user.id);
     }
   },[tgData])
   
@@ -57,7 +55,7 @@ const HomePage = () => {
         }),
       });
       const data = await res.json();
-      return data
+      setBdUser(data)
     } catch (e) {
       console.error("Ошибка при создании пользователя:", e);
     }
