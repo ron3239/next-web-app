@@ -18,6 +18,7 @@ const HomePage = () => {
       const user = GetUser(tgData.user.id);
       console.log('Данные tgData:', tgData);
       setBdUser(user)
+      console.log('Данные BdUser:', bdUser);
     }else if(bdUser === null){
       const user = createUser(tgData.user.id);
       setBdUser(user)
@@ -36,8 +37,6 @@ const HomePage = () => {
       });
       const data = await response.json();
       setBdUser(data);
-      console.log("Данные пользователя date:", data);
-      console.log("Данные пользователя bd:", bdUser);
     } catch (error) {
       setBdUser(null);
       console.error('Ошибка получения данных пользователя:', error);
