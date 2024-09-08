@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 const HomePage = () => {
   const [tgData, setTgData] = useState(null);
-  const [bdUser, setBdUser] = useState(null);
+  const [bdUser, setBdUser] = useState();
 
   useEffect(() => {
     fetchData()
