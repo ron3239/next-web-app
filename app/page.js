@@ -10,15 +10,13 @@ const HomePage = () => {
   const [bdUser, setBdUser] = useState();
 
   useEffect(() => {
-    const d= fetchData()
-    setTgData(d)
-    console.log('Данные tgData:', tgData);
-
+    fetchData()
   }, []);
 
   useEffect(()=>{
     if (tgData!=null&& tgData!=null) {
       const user = GetUser(tgData.user.id);
+      console.log('Данные tgData:', tgData);
       setBdUser(user)
     }else if(bdUser === null){
       const user = createUser(tgData.user.id);
@@ -69,8 +67,7 @@ const HomePage = () => {
     try {
       console.log('Вызов fetchData');
       const data = await initInitData(); 
-      console.log('Данные tgData:', data);
-      return data
+      setTgData(data)
     } catch (error) {
       setTgData(null);
       console.error('Ошибка получения данных:', error);
