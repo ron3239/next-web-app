@@ -46,7 +46,7 @@ const Game = ({bdUser,GetUser}) => {
     }, [energy]);
 
 
-    const updateDateTime = async () => {
+    const updateDateTime = async (id_user) => {
       const controller = new AbortController();
       try {
           await fetch('api/user/update_dateTime', {
@@ -56,7 +56,7 @@ const Game = ({bdUser,GetUser}) => {
                   'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                  id_user: '5064231449',
+                  id_user: id_user,
                   DateTime: new Date(),
               }),
           });
@@ -108,7 +108,7 @@ const Game = ({bdUser,GetUser}) => {
     const handleChange = (value) => {
       setState(value);
     };
-    const plusCount = async (kol) => {
+    const plusCount = async (kol,id_user) => {
       const controller = new AbortController();
       try {
         const data = await fetch('./api/user/plus', {
@@ -118,11 +118,12 @@ const Game = ({bdUser,GetUser}) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                id_user: '5064231449',
+                id_user: id_user,
                 kol: kol,
             }),
         });
         const res = await data.json();
+        setCount(Count+kol)
 
     } catch (e) {
         console.error(e);
@@ -130,7 +131,7 @@ const Game = ({bdUser,GetUser}) => {
         controller.abort();
     }
     };
-    const minusCount = async (kol) => {
+    const minusCount = async (kol,id_user) => {
       try {
           const data = await fetch('api/user/minus', {
               method: 'POST',
@@ -138,7 +139,7 @@ const Game = ({bdUser,GetUser}) => {
                   'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                  id_user: '5064231449',
+                  id_user: id_user,
                   kol: kol,
               }),
           });
@@ -150,14 +151,13 @@ const Game = ({bdUser,GetUser}) => {
     };
     const tap = () => {
       if (energy > 0) {
-        plusCount(Coin_tap);          //undefined
-        setCount(Count+Coin_tap)
+        plusCount(Coin_tap,id_user);          //undefined
         setEnergy(energy - 1);
       }
     };
     const claim = (kol)=>{
-      plusCount(kol);
-      updateDateTime()
+      plusCount(kol,id_user);
+      updateDateTime(id_user)
       GetUser(id_user)
       console.log('ok')
     }

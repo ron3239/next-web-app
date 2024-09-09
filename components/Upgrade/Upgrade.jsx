@@ -39,7 +39,7 @@ const Upgrade = (props) => {
       };
     }, []);
     useEffect(()=>{             //get user upgrade
-        fetchUpgrades()  
+        fetchUpgrades(props._metadata.id_user)  
     },[])
     useEffect(() => {
       const replace = async (list1, list2) => {
@@ -139,7 +139,7 @@ const Upgrade = (props) => {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              id_user: id_user,
+              id_user: props._metadata.id_user,
               upgradeId: list.upgradeId
             })
           });
@@ -157,7 +157,6 @@ const Upgrade = (props) => {
               coin_hour:list.coinPerHour              
             })
           })
-          props.GetUser()
           
         } catch (error) {
           if (error.name === 'AbortError') {
@@ -168,7 +167,7 @@ const Upgrade = (props) => {
         } finally {
           controller.abort();
         }
-        props._metadata.minusCount(list.cost);
+        props._metadata.minusCount(list.cost,props._metadata.id_user);
         return () => {controler.abort()};
       }
 
