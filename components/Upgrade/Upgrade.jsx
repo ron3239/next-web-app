@@ -7,7 +7,6 @@ import Ramka_upgrade from './Ramka_upgrade'
 const Upgrade = (props) => {
     const [list_upgrade, setList_upgrade] = useState([]);
     const [userBought,setUserBought] = useState([]) //покупки пользователя
-    const [cost, setCost] = useState([]);
     const [_data, setData] = useState([]);
     const [vis, setVis] = useState(false);
     const hasFetched1 = useRef(false); // Хранит состояние выполнения запроса
@@ -196,7 +195,7 @@ const Upgrade = (props) => {
                     <img src="./coin.svg" alt="" className="size-[20px]" />
                     <h1 className="text-[40px] self-center text-slate-50 font-mono gap-5"> {props._metadata.Count} </h1>
                 </div>
-                {!list_upgrade? <p>Loading...</p>:
+                {!_data? <p>Loading...</p>:
                 <ul className='grid grid-cols-2 gap-5 mb-5'>
                     {l}
                 </ul>
