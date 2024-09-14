@@ -71,13 +71,13 @@ const HomePage = () => {
     }
   };
 
-  // if (!tgData) {
-  //   return <Loading />;
-  // }
+  if (!tgData) {
+    return <Loading />;
+  }
 
-  // if (!bdUser) {
-  //   return <Loading />;
-  // }
+  if (!bdUser) {
+    return <Loading />;
+  }
 
   return <Game bdUser={bdUser} GetUser={GetUser} />;
 };
