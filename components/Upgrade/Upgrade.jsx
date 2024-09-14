@@ -7,6 +7,7 @@ import Ramka_upgrade from './Ramka_upgrade'
 const Upgrade = (props) => {
     const [list_upgrade, setList_upgrade] = useState([]);
     const [userBought,setUserBought] = useState([]) //покупки пользователя
+    const [cost, setCost] = useState([]);
     const [_data, setData] = useState([]);
     const [vis, setVis] = useState(false);
     const hasFetched1 = useRef(false); // Хранит состояние выполнения запроса
