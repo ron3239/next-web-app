@@ -54,7 +54,6 @@ const Upgrade = (props) => {
           const arr = await Promise.all(promises);
           setCost(arr);
           setData(_newData(list_upgrade, arr));
-          console.log('_data',_data)
       };
   
       if (hasFetched1 && hasFetched2) {
