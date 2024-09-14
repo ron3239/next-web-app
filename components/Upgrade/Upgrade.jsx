@@ -195,7 +195,7 @@ const Upgrade = (props) => {
                     <img src="./coin.svg" alt="" className="size-[20px]" />
                     <h1 className="text-[40px] self-center text-slate-50 font-mono gap-5"> {props._metadata.Count} </h1>
                 </div>
-                {!_data? <p>Loading...</p>:
+                {!list_upgrade? <p>Loading...</p>:
                 <ul className='grid grid-cols-2 gap-5 mb-5'>
                     {l}
                 </ul>
