@@ -190,7 +190,7 @@ const Upgrade = (props) => {
                     <img src="./coleso.svg" className="size-7 animate-spin"/>
                 </div>
 
-            <div className="flex flex-col justify-between rounded-t-lg shadow-[0px_0px_20px_15px_#44337a] bg-[#232526] mt-20">
+            <div className="min-h-28 flex flex-col justify-between rounded-t-lg shadow-[0px_0px_20px_15px_#44337a] bg-[#232526] mt-20">
 
                 <div className="flex items-center justify-center">
                     <img src="./coin.svg" alt="" className="size-[20px]" />

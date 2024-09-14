@@ -17,7 +17,7 @@ const Ramka_upgrade = (props) => {
         </div>
           <img
             className="rounded-t-lg"
-            src="https://tecdn.b-cdn.net/img/new/standard/nature/184.jpg"
+            src={props._data.img}
             alt="" />
         <div className="p-6">
           <h5
