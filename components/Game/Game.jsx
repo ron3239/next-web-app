@@ -123,7 +123,7 @@ const Game = ({bdUser,GetUser}) => {
             }),
         });
         const res = await data.json();
-        setCount(Count+kol)
+        await setCount(Count+kol)
 
     } catch (e) {
         console.error(e);
@@ -158,7 +158,7 @@ const Game = ({bdUser,GetUser}) => {
     const claim = (kol)=>{
       plusCount(kol,id_user);
       updateDateTime(id_user)
-      GetUser(id_user)
+      setHour(new Date().toString())
       console.log('ok')
     }
   
