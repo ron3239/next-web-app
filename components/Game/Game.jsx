@@ -175,6 +175,7 @@ const Game = ({bdUser,GetUser}) => {
       handleChange: handleChange,
       claim:claim,
       minusCount:minusCount,
+      setCount:setCount,
       hour:hour
     }
 
