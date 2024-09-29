@@ -168,6 +168,7 @@ const Upgrade = (props) => {
           controller.abort();
         }
         props._metadata.minusCount(list.cost,props._metadata.id_user);
+        props._metadata.setCount(props._metadata.Count - list.cost);
         return () => {controler.abort()};
       }
 
