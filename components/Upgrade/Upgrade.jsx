@@ -175,7 +175,7 @@ const Upgrade = (props) => {
     const l = _data.map((list, id) => (
         <li className='flex flex-col justify-center rounded-lg border border-stone-700 bg-stone-700' key={id}>
           <h1 className='flex-grow items-center text-slate-100'>{list.name}</h1>
-          <button className='mt-auto bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong' onClick={()=>{open_close_ramka();setDataRamka(list);}}>Купить</button>
+          <button className='mt-auto place-items-end w-[100%] items-center border-t border-stone-900 text-slate-100' onClick={()=>{open_close_ramka();setDataRamka(list);}}>Купить {list.cost}</button>
         </li>
       ));
 

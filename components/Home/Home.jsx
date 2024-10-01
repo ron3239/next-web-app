@@ -45,6 +45,10 @@ const Home = (props)=>{
                         {props._metadata.name}
                     </h1>
                 </div>
+                <div className="m-2 flex items-center justify-between">
+                    <img src="./car.png" alt="" />
+                </div>
+
 
             <div className="flex flex-col justify-between rounded-t-lg shadow-[0px_0px_20px_15px_#44337a] bg-[#232526] mt-20">
             {props._metadata.Coin_hour !== 0 ? (
