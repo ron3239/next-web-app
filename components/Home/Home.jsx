@@ -44,7 +44,7 @@ const Home = (props)=>{
                 <h1 className="text-4xl text-stone-200 font-bold"> 
                     {props._metadata.name}
                 </h1>
-                <h1 className="p-4 text-4xl text-stone-200 font-bold bg-[#44337a] rounded"> 
+                <h1 className="p-4 text-3xl text-stone-200 font-medium bg-[#44337a] rounded"> 
                     WELCARS
                 </h1>
             </div>
