@@ -40,11 +40,11 @@ const Home = (props)=>{
     }
     return (
         <div className="h-full w-full select-none">
-                <div className="m-2 flex items-center justify-between">
-                    <h1 className="text-[24px] text-stone-200 font-bold">
+                <div className="m-2 flex items-center ">
+                    <h1 className="text-[24px] text-stone-200 font-bold self-start">
                         {props._metadata.name}
                     </h1>
-                    <img src="./car.png" alt="" className='size-24' />
+                    <img src="./car.png" alt="" className='h-[36px] w-36 self-center' />
                 </div>
 
 
