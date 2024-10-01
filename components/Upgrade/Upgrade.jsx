@@ -173,10 +173,9 @@ const Upgrade = (props) => {
       }
 
     const l = _data.map((list, id) => (
-      <li className='flex flex-col justify-center rounded-lg ' key={id}>
+      <li className='flex flex-col justify-center rounded-lg bg-white p-6 shadow-secondary-1 dark:bg-surface-dark dark:text-white text-surface' key={id}>
 
-        <div
-          class="mt-4 block w-1/2 rounded-lg bg-white p-6 shadow-secondary-1 dark:bg-surface-dark dark:text-white text-surface">
+        
           <h5
             class="mb-2 text-xl font-medium leading-tight">
             Card title
@@ -192,7 +191,6 @@ const Upgrade = (props) => {
             onClick={() => { open_close_ramka(); setDataRamka(list); }}
             Купить
             </button>
-        </div>
       </li>
       ));
 
