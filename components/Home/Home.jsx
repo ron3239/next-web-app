@@ -41,7 +41,7 @@ const Home = (props)=>{
     return (
         <div className="h-full w-full select-none">
                 <div className="m-2 grid grid-cols-3 ">
-                    <h1 className="text-4xl text-stone-200 font-bold col-span-1">
+                    <h1 className="text-4xl text-stone-200 font-bold col-span-1 gap-3">
                         {props._metadata.name}
                     </h1>
                     <h1 className="p-4 text-4xl text-stone-200 font-bold self-center bg-indigo-600 rounded col-span-1">
