@@ -41,10 +41,10 @@ const Home = (props)=>{
     return (
         <div className="h-full w-full select-none">
                 <div className="m-2 flex items-center ">
-                    <h1 className="text-6xl text-stone-200 font-bold items-start">
+                    <h1 className="text-4xl text-stone-200 font-bold items-start">
                         {props._metadata.name}
                     </h1>
-                    <img src="./car.png" alt="" className='size-16 items-center ml-60' />
+                    <img src="./car.png" alt="" className='size-16 items-center ml-10' />
                 </div>
 
 
