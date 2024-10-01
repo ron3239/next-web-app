@@ -41,14 +41,14 @@ const Home = (props)=>{
     return (
         <div className="h-full w-full select-none">
                 <div className="m-2 flex items-center ">
-                    <h1 className="text-[24px] text-stone-200 font-bold items-start">
+                    <h1 className="text-6xl text-stone-200 font-bold items-start">
                         {props._metadata.name}
                     </h1>
-                    <img src="./car.png" alt="" className='h-[36px] w-36 items-center' />
+                    <img src="./car.png" alt="" className='size-16 items-center ml-60' />
                 </div>
 
 
-            <div className="flex flex-col justify-between rounded-t-lg shadow-[0px_0px_20px_15px_#44337a] bg-[#232526] mt-20">
+            <div className="flex flex-col justify-between rounded-t-lg shadow-[0px_0px_20px_15px_#44337a] bg-[#232526] mt-15">
             {props._metadata.Coin_hour !== 0 ? (
                 ras <= -10_800_000 ? (
                     <div className="flex flex-col items-center ml-auto border-solid rounded-lg border-[#44337a] border-2 p-2 mt-5 mr-5">
