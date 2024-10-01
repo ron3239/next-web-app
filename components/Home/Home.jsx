@@ -44,8 +44,6 @@ const Home = (props)=>{
                     <h1 className="text-[24px] text-stone-200 font-bold">
                         {props._metadata.name}
                     </h1>
-                </div>
-                <div className="m-2 flex items-center justify-between">
                     <img src="./car.png" alt="" className='size-8' />
                 </div>
 
