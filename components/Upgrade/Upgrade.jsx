@@ -184,12 +184,14 @@ const Upgrade = (props) => {
 
                 {vis&&<Ramka_upgrade _data={dataRamka} onClick_close={open_close_ramka} onClick_buy={buy}/>}
 
-                <div className="m-2 flex items-center justify-between">
-                    <h1 className="text-[24px] text-stone-200 font-bold">
+                <div className="m-2 flex justify-between">
+                <h1 className="text-4xl text-stone-200 font-bold"> 
                     {props._metadata.name}
-                    </h1>
-                    <img src="./coleso.svg" className="size-7 animate-spin"/>
-                </div>
+                </h1>
+                <h1 className="p-4 text-3xl text-stone-200 font-medium bg-[#44337a]/30 rounded"> 
+                    WELCARS
+                </h1>
+            </div>
 
             <div className="min-h-64 h-full flex flex-col justify-between rounded-t-lg shadow-[0px_0px_20px_15px_#44337a] bg-[#232526] mt-20">
 

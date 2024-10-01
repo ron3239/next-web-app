@@ -3,9 +3,12 @@ const Invite = (props) => {
 
     return (
         <div className="h-full w-full select-none">
-            <div className="m-2 flex items-center justify-between">
-                <h1 className="text-[24px] text-stone-200 font-bold">
-                {props._metadata.name}
+            <div className="m-2 flex justify-between">
+                <h1 className="text-4xl text-stone-200 font-bold"> 
+                    {props._metadata.name}
+                </h1>
+                <h1 className="p-4 text-3xl text-stone-200 font-medium bg-[#44337a]/30 rounded"> 
+                    WELCARS
                 </h1>
             </div>
 
