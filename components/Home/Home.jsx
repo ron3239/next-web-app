@@ -46,7 +46,7 @@ const Home = (props)=>{
                     </h1>
                 </div>
                 <div className="m-2 flex items-center justify-between">
-                    <img src="./car.png" alt="" />
+                    <img src="./car.png" alt="" className='size-8' />
                 </div>
 
 
