@@ -40,11 +40,11 @@ const Home = (props)=>{
     }
     return (
         <div className="h-full w-full select-none">
-            <div className="m-2 flex justify-between"> {/* Используем justify-between */}
-                <h1 className="text-4xl text-stone-200 font-bold"> {/* Убираем ненужные классы */}
+            <div className="m-2 flex justify-between">
+                <h1 className="text-4xl text-stone-200 font-bold"> 
                     {props._metadata.name}
                 </h1>
-                <h1 className="p-4 text-4xl text-stone-200 font-bold bg-indigo-600 rounded"> {/* Убираем ненужные классы */}
+                <h1 className="p-4 text-4xl text-stone-200 font-bold bg-[#44337a] rounded"> 
                     WELCARS
                 </h1>
             </div>
