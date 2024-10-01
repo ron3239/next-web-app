@@ -44,7 +44,7 @@ const Home = (props)=>{
                     <h1 className="text-[24px] text-stone-200 font-bold">
                         {props._metadata.name}
                     </h1>
-                    <img src="./car.png" alt="" className='size-8' />
+                    <img src="./car.png" alt="" className='size-24' />
                 </div>
 
 
