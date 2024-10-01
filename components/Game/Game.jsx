@@ -155,7 +155,7 @@ const Game = ({bdUser,GetUser}) => {
       }
     };
     const claim = (kol)=>{
-      plusCount(kol,id_user);
+      plusCount(kol*3,id_user);
       setCount(Count+kol)
       updateDateTime(id_user)
       setHour(new Date().toString())
