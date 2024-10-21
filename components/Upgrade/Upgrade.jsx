@@ -127,6 +127,8 @@ const Upgrade = (props) => {
       }
       const buy = async (list) => {
         if (props._metadata.Count < list.cost) return;
+
+        setVis(!vis)
       
         const controller = new AbortController();
         const endpoint = list.level > 1 ? 'api/upgrade/update' : 'api/upgrade/user_upgrade_create';
@@ -170,7 +172,6 @@ const Upgrade = (props) => {
         props._metadata.minusCount(list.cost,props._metadata.id_user);
         props._metadata.setCount(props._metadata.Count - list.cost);
 
-        setVis(!vis)
         return () => {controler.abort()};
       }
 
