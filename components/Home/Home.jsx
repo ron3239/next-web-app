@@ -55,7 +55,7 @@ const Home = (props)=>{
             {props._metadata.Coin_hour !== 0 ? (
                 ras <= -10_800_000 ? (
                     <div className="flex flex-col items-center ml-auto border-solid rounded-lg border-[#44337a] border-2 p-2 mt-5 mr-5">
-                        <button className='self-center text-slate-50 font-mono' onClick={() => props._metadata.claim(props._metadata.Coin_hour)}>
+                        <button className='self-center text-slate-50 font-mono' onClick={() => props._metadata.claim(props._metadata.Coin_hour * 3)}>
                             Claim {props._metadata.Coin_hour * 3}
                         </button>
                     </div>
