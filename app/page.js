@@ -78,9 +78,9 @@ const HomePage = () => {
         return <Register_Login onClick1={createUser} />
     }
 
-  if (!bdUser) {
+/*  if (!bdUser) {
     return <Loading />;
-  }
+  }*/
 
   return <Game bdUser={bdUser} GetUser={GetUser} />;
 };
