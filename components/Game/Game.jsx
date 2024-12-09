@@ -105,9 +105,11 @@ const Game = ({bdUser}) => {
         default :return `${imageBaseURL}1.svg`
       }
     }
+
     const handleChange = (value) => {
       setState(value);
     };
+
     const plusCount = async (kol,id_user) => {
       const controller = new AbortController();
       try {
@@ -129,6 +131,7 @@ const Game = ({bdUser}) => {
         controller.abort();
     }
     };
+
     const minusCount = async (kol,id_user) => {
       try {
           const data = await fetch('api/user/minus', {
@@ -147,6 +150,7 @@ const Game = ({bdUser}) => {
           console.error(e);
       }
     };
+
     const tap = () => {
       if (energy > 0) {
         plusCount(Coin_tap,id_user);          //undefined
@@ -154,6 +158,7 @@ const Game = ({bdUser}) => {
         setEnergy(energy - 1);
       }
     };
+
     const claim = (kol)=>{
       plusCount(kol*3,id_user);
       setCount(Count+kol)
