@@ -10,7 +10,7 @@ export const Register_Login = () => {
 
     return (
         <>
-        <div className="flex flex-col items-center">
+        <div className="flex items-center">
             <form class="max-w-sm mx-auto">
                 <div class="mb-5">
                     <label for="Id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Id</label>
