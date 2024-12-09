@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from "react"
+import Game from "../Game/Game";
 
 
 export const Register_Login = (props) => {
