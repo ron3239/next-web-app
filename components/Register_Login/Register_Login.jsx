@@ -8,7 +8,9 @@ export const Register_Login = () => {
     const [password, setPassword] = useState('')
     const [bdUser,setbdUser] = useState()
 
-    setbdUser(props.GetUser(5064231449))
+    useEffect(() => {
+        setbdUser(props.GetUser(5064231449));
+    }, [props]);
 
 
     return (
