@@ -73,14 +73,14 @@ const HomePage = () => {
   };
 
     if (!tgData) {
-        return <Register_Login GetUser={GetUser} />
+      return <Loading />;
     }
 
   if (!bdUser) {
     return <Loading />;
   }
 
-  // return <Game bdUser={bdUser} GetUser={GetUser} />;
+  return <Game bdUser={bdUser} GetUser={GetUser} />;
 };
 
 export default HomePage;
