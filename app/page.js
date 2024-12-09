@@ -81,6 +81,7 @@ const HomePage = () => {
   }
 
   return <Game bdUser={bdUser} GetUser={GetUser} />;
+  
 };
 
 export default HomePage;
