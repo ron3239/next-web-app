@@ -4,6 +4,7 @@ import { initInitData } from "@telegram-apps/sdk-react";
 import Game from "../components/Game/Game";
 import Loading from "../components/Loading/Loading";
 import { useState, useEffect } from "react";
+import { Register_Login } from "../components/Register_Login/Register_Login";
 
 const HomePage = () => {
   const [tgData, setTgData] = useState(null);
@@ -41,7 +42,7 @@ const HomePage = () => {
     }
   };
 
-  const createUser = async (idUser) => {
+    const createUser = async (idUser, name = 'Неизвестный пользователь') => {
     try {
       const res = await fetch('/api/user/create', {
         method: "POST",
@@ -50,7 +51,7 @@ const HomePage = () => {
         },
         body: JSON.stringify({
           id_user: idUser,
-          username: tgData?.user?.firstName || 'Неизвестный пользователь',
+            username: tgData?.user?.firstName || name,
           last_update_time: new Date(),
         }),
       });
@@ -71,9 +72,11 @@ const HomePage = () => {
     }
   };
 
-  if (!tgData) {
-    return <Loading />;
-  }
+    if (!tgData) {
+        return <Loading />;
+    } else {
+        return <Register_Login onClick1={createUser} />
+    }
 
   if (!bdUser) {
     return <Loading />;
