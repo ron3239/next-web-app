@@ -16,7 +16,8 @@ const HomePage = () => {
 
   useEffect(()=>{
     if (tgData!=null&& tgData!=null) {
-      GetUser(tgData.user.id);
+      // GetUser(tgData.user.id);
+      GetUser(5064231449);
       console.log('Данные tgData:', tgData);
     }else if(bdUser === null){
       createUser(tgData.user.id);
@@ -73,14 +74,14 @@ const HomePage = () => {
   };
 
     if (!tgData) {
-      return <Loading />;
+      return <Game bdUser={bdUser} GetUser={GetUser} />;
     }
 
   if (!bdUser) {
     return <Loading />;
   }
 
-  return <Game bdUser={bdUser} GetUser={GetUser} />;
+  // return <Game bdUser={bdUser} GetUser={GetUser} />;
 };
 
 export default HomePage;
