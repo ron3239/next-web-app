@@ -1,8 +1,8 @@
 'use client';
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 
-export const Register_Login = () => {
+export const Register_Login = (props) => {
 
     const[id,setId]= useState('')
     const [password, setPassword] = useState('')
