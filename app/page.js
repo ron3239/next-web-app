@@ -22,7 +22,7 @@ const HomePage = () => {
     }else if(bdUser === null){
       createUser(tgData.user.id);
     }
-  },[tgData])
+  },[])//tgData
   
 
   const GetUser = async (id_user) => {
