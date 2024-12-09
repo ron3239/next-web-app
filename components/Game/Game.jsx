@@ -66,6 +66,7 @@ const Game = ({bdUser}) => {
           controller.abort();
       }
     };
+    
     function getImageUrlAnd(userMoney) {
       switch (true) {
         case userMoney >= 1_000_000_000:

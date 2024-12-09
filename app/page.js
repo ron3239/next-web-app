@@ -73,7 +73,7 @@ const HomePage = () => {
   };
 
     if (!tgData) {
-        return <Register_Login onClick1={createUser} />
+        return <Register_Login onClick1={GetUser} />
     }
 
   if (!bdUser) {
