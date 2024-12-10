@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 const HomePage = () => {
   const [tgData, setTgData] = useState(null);
   const [bdUser , setBdUser ] = useState();
-  const Id = "123456789"; // Замените на нужный вам ID пользователя
+  const Id = 5064231449; // Замените на нужный вам ID пользователя
 
   useEffect(() => {
     fetchData();
