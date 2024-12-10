@@ -12,17 +12,18 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchData()
+    GetUser("5064231449");
   }, []);
 
   useEffect(()=>{
     if (tgData!=null&& tgData!=null) {
-      // GetUser(tgData.user.id);
-      GetUser("5064231449");
+      GetUser(tgData.user.id);
+
       console.log('Данные tgData:', tgData);
     }else if(bdUser === null){
       createUser(tgData.user.id);
     }
-  },[])//tgData
+  },[tgData])
   
 
   const GetUser = async (id_user) => {
