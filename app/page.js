@@ -12,7 +12,8 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchData();
-    GetUser(Id);
+    // GetUser(Id);
+    createUser(5156467386)
   }, []);
 
   useEffect(() => {
