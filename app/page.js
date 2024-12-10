@@ -11,8 +11,8 @@ const HomePage = () => {
   const [bdUser, setBdUser] = useState();
 
   useEffect(() => {
-    // fetchData()
-    GetUser(5064231449);
+    fetchData()
+    // GetUser(5064231449);
   }, []);
 
   useEffect(()=>{
@@ -75,14 +75,14 @@ const HomePage = () => {
   };
 
     if (!tgData) {
-      return <Game bdUser={bdUser} GetUser={GetUser} />;
+      // return <Game bdUser={bdUser} GetUser={GetUser} />;
     }
 
   if (!bdUser) {
     return <Loading />;
   }
 
-  // return <Game bdUser={bdUser} GetUser={GetUser} />;
+  return <Game bdUser={bdUser} GetUser={GetUser} />;
 };
 
 export default HomePage;
