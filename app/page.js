@@ -12,14 +12,15 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchData();
+    GetUser(Id);
   }, []);
 
   useEffect(() => {
     if (tgData) {
-      GetUser (Id); // Используем фиксированный ID
+      // GetUser (Id); // Используем фиксированный ID
       console.log('Данные tgData:', tgData);
     } else if (bdUser  === null) {
-      createUser (Id); // Используем фиксированный ID
+      // createUser (Id); // Используем фиксированный ID
     }
   }, [tgData]);
 
