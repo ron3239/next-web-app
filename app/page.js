@@ -11,8 +11,8 @@ const HomePage = () => {
   const [bdUser, setBdUser] = useState();
 
   useEffect(() => {
-    fetchData()
-    GetUser("5064231449");
+    // fetchData()
+    GetUser(5064231449);
   }, []);
 
   useEffect(()=>{
