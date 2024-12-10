@@ -72,9 +72,9 @@ const HomePage = () => {
     }
   };
 
-  if (!tgData) {
-    return <Loading />;
-  }
+  // if (!tgData) {
+  //   return <Loading />;
+  // }
 
   if (!bdUser ) {
     return <Loading />;
