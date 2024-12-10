@@ -28,7 +28,7 @@ const HomePage = () => {
 
   const GetUser = async (id_user) => {
     try {
-      const response = await fetch('./api/user/search', {
+      const response = await fetch('/api/user/search', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
