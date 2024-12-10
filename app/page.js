@@ -8,12 +8,11 @@ import { useState, useEffect } from "react";
 const HomePage = () => {
   const [tgData, setTgData] = useState(null);
   const [bdUser , setBdUser ] = useState();
-  const Id = 5064231449; // Замените на нужный вам ID пользователя
 
   useEffect(() => {
     fetchData();
-    // GetUser(Id);
-    createUser(5156467386)
+    GetUser(5064231449);
+    // createUser(5156467386)
   }, []);
 
   useEffect(() => {
