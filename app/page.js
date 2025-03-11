@@ -16,7 +16,7 @@ const HomePage = () => {
   }, []);
 
   useEffect(()=>{
-    if (tgData!=null&& tgData!=null) {
+    if (tgData!=null) {
       GetUser(tgData.user.id);
       console.log('Данные tgData:', tgData);
     }else if(bdUser === null){
